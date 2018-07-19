@@ -6,7 +6,7 @@ const Posts = require('../models/posts.js');
 router.get('/', (req, res)=>{
     Posts.find({}, (err, foundPosts)=>{
         res.json(foundPosts);
-    });
+    }).populate('user');
 });
 
 router.delete('/:id', (req, res)=>{

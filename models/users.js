@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: {type: String, unique: true, required: true},
   password: {type: String, required: true},
-  reviews: [{
+  posts: [{
 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Reviews'
+        ref: 'Posts'
 
   }],
   comments: [String]
