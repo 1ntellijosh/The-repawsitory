@@ -11,7 +11,7 @@
 
       <h1>Animals!</h1>
 
-      <div ng-if="!ctrl.loggedInUserName">
+      <div ng-if="!ctrl.loggedInId">
       <h2>Create User</h2>
         <form ng-submit="ctrl.createUser()">
           <input type="text" ng-model="ctrl.username" />
@@ -27,6 +27,6 @@
             </form>
         </div>
 
-        <button ng-if="ctrl.loggedInUserName" ng-click="ctrl.logOff()">Log Off</button>
+        <button ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</button>
     </body>
 </html>

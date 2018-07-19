@@ -41,7 +41,7 @@ app.controller('MyController', ['$http', function($http){
         method:'GET',
         url: '/app'
     }).then(function(response){
-        controller.loggedInUserName = response.data.username;
+        controller.loggedInId = response.data._id;
     }, function(){
         console.log('error');
     });
