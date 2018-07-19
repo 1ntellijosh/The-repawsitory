@@ -19,6 +19,5 @@ router.get('/user/:id', (req, res) => {
     res.json(foundUser)
     }).populate('posts');
   });
-})
 
 module.exports = router;
