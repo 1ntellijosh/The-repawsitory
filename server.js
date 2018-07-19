@@ -22,8 +22,15 @@ app.use('/sessions', sessionsController);
 
 mongoose.connect('mongodb://localhost:27017/repawsitory');
 
-app.get('/', function(req, res){
-    res.send('hello');
+app.get('/app', function(req, res){
+    if(req.session.currentUser){
+        res.json(req.session.currentUser);
+    } else {
+        res.status(401).json({ //status 401 is specifically for when the user needs to log in
+            status:401,
+            message:'not logged in'
+        });
+    }
 });
 
 app.listen(3000, ()=>{
