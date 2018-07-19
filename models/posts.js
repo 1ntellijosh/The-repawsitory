@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema({
   type: String,
   title: String,
+  species: String,
   description: String,
   image: String,
   movie: String,
