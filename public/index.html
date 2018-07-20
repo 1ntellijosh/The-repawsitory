@@ -29,8 +29,11 @@
       <iframe width="100%" ng-src="{{getIframeSrc(post.movie)}}" frameborder="0 " allowfullscreen></iframe>
 
       </div>
+      {{post.description}}
       <div id="story" ng-if="post.description">
-        <textarea name="{{post.description}}" rows="8" cols="80"></textarea>
+        <p>
+          {{post.description}}
+        </p>
       </div>
       </li>
     </ul>
@@ -77,7 +80,7 @@
             </select>
             <div ng-if="ctrl.type === 'story'">
               <label for="sDescription">Description: </label>
-              <textarea class="u-full-width" placeholder="Write your story here:" ng-model="ctrl.createForm.description" id="sDescription"></textarea>
+              <textarea class="u-full-width" placeholder="Write your story here:" ng-model="ctrl.description" id="sDescription"></textarea>
             </div>
 
             <div ng-if="ctrl.type === 'image' || ctrl.type === 'movie'">
