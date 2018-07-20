@@ -198,7 +198,6 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }
 
 
-
     this.randPost= this.posts
     this.getPosts();
 
@@ -207,3 +206,39 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     this.includePath = '../partials/'+ path +'.html';
   }
 }]);
+
+// app.controller('petfinderController', ['$http', function($http){
+//
+//   this.appName ="Movie House"
+//
+//     this.baseURL= 'http://api.petfinder.com/pet.getRandom?'
+//     this.format= 'json'
+//     this.apikey= 'key='+ '40cd84ccc829ff498eef92970e909146'
+//     this.animalType= ''
+//     this.searchURL= this.baseURL + this.format + '&' + this.apikey + "&"
+//     + "&output=basic"
+//
+//     console.log(this.searchURL);
+//
+//     http://api.petfinder.com/pet.getRandom?json&key=40cd84ccc829ff498eef92970e909146&animal=cat&output=basic
+//
+// this.animal=[]
+// this.animals=[]
+// this.animalDetails= []
+//
+// this.getAnimals=()=>{
+//   $http({
+//       method: 'GET',
+//       url:this.searchURL
+//   }).then(response=> {
+//     this.animals = response.data;
+//     console.log(response);
+//
+//   }, error => {
+//     console.log(error)
+//   }).catch(err => console.log('Catch :', err));
+//   }
+//
+//
+//
+// }])
