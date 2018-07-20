@@ -4,7 +4,6 @@ app.controller('MyController', ['$http', function($http){
 
   const controller = this;
 
-
   this.createUser = function(){
     $http({
         method:'POST',
@@ -54,11 +53,29 @@ app.controller('MyController', ['$http', function($http){
         url: '/sessions'
     }).then(function(response){
         console.log(response);
-        controller.loggedInUserName = null;
+        controller.loggedInId = null;
     }, function(){
         console.log('error');
     });
   }
+
+  this.createPost = function(id){
+   $http({
+     method:'POST',
+     url:'/posts',
+     data: {
+       type: this.type,
+       title: this.title,
+       species: this.species,
+       description: this.description,
+       image: this.image,
+       movie: this.movie,
+       user: id
+     }
+   }).then(function(response){
+     console.log(response);
+   })
+ }
 
   this.posts = [
       {
@@ -102,10 +119,19 @@ app.controller('MyController', ['$http', function($http){
         likes: 14
       }
     ]
-    this.randomize= function() {
-        return 0.5 - Math.random()
-
-      }
-
+    //get posts function
+     this.getPosts = function(){
+       $http({
+         method:'GET',
+         url:'/posts',
+       }).then(function(response){
+         controller.posts = response.data.loggedInId
+       }), function(){
+         console.log('error');
+       }
+     }
+     this.randomize = function () {
+        return 0.3 - Math.random();
+    };
 
 }]);
