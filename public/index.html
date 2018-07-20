@@ -46,13 +46,6 @@
 
         <button ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</button>
 
-        <h2> Add New Items </h2>
-        <form ng-submit="ctrl.createPost()">
-          <input type="text" ng-model="ctrl.name" placeholder="name"/>
-          <input type="number" ng-model="ctrl.qty" placeholder="quantity"/>
-          <input type="number" ng-model="ctrl.price" placeholder="price" />
-          <label for="coupCheck">Coupons?</label><input id="coupCheck" type="checkbox" ng-model="ctrl.coupons"/>
-          <input type="submit" value="Add New Item"/>
-        </form>
+      
     </body>
 </html>
