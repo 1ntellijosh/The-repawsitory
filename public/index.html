@@ -9,32 +9,30 @@
     </head>
     <body ng-controller="MyController as ctrl">
 
+    <div id="header">
+      <a></a>
+    </div>
+
       <h1>Animals!</h1>
 <!-- index to show all posts after member log in -->
     <hr>
-    <ul>
-      <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts">
-        {{post.type}} - {{post.title}} - {{post.species}} - {{post.description}} - {{post.likes}}
-      </li>
+    <ul >
+      <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = post.movie;">
+        {{post.type}} - {{post.title}} - {{post.species}} - {{post.description}} - {{post.likes}} - {{post.image}} - {{post.movie}}
 
 
-<!-- index to show all posts after member log in -->
-    <hr>
-    <ul>
-      <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts">
-        {{post.type}} - {{post.title}} - {{post.species}} - {{post.description}} - {{post.likes}}
-      </li>
-
-
-      <div id="image" ng-if="post.image" >
-        <img src="{{post.image}}" alt="">
+      <div id="image" ng-if="post.image">
+        <img ng-src="{{post.image}}" alt="">
       </div>
       <div id="movie" ng-if="post.movie">
-        <iframe src="{{post.movie}}" width="" height=""></iframe>
+
+      <iframe width="100%" ng-src="{{getIframeSrc(post.movie)}}" frameborder="0 " allowfullscreen></iframe>
+
       </div>
       <div id="story" ng-if="post.description">
         <textarea name="{{post.description}}" rows="8" cols="80"></textarea>
       </div>
+      </li>
     </ul>
       <div ng-if="!ctrl.loggedInId">
       <h2>Create User</h2>
@@ -101,30 +99,6 @@
             </div>
             <input type="submit" value="Add Post"/>
         </form>
-
-      <!-- index before login -->
-                <div ng-if="!ctrl.loggedInId"
-                ng-repeat="post in ctrl.posts = (ctrl.posts|orderBy:ctrl.randomize).slice(0, 1)">
-                  <article>
-                    <h3>{{post.title}}
-                  <div id="image" ng-if="post.image" >
-                    <img src="{{post.image}}" alt="">
-                  </div>
-                  <div id="movie" ng-if="post.movie">
-                    <iframe src="{{post.movie}}" width="" height=""></iframe>
-                  </div>
-                  <div id="story" ng-if="post.description">
-                    <textarea name="{{post.description}}" rows="8" cols="80"></textarea>
-                  </div>
-                  <p>{{post.description}}</p>
-                </article>
-                </div>
-    <!-- end of index before login -->
-
-
-
-
-
 
 
 
