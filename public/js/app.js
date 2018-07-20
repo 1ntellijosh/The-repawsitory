@@ -14,6 +14,8 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
 
   const controller = this;
   this.loggedInId = null;
+  this.showPost = null;
+  this.editForm = false;
 
   $scope.getIframeSrc = function(src) {
     return  src;
@@ -119,6 +121,42 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
      controller.getPosts();
      controller.includePath = '../partials/main.html';
    })
+ }
+
+ this.getPost = function(post) {
+   controller.showPost = post;
+   console.log(controller.showPost);
+ }
+
+ this.getEditForm = function() {
+   controller.editForm = true;
+ }
+
+ this.editPost = function(post){
+   if (this.movie) {
+     this.movie = getId(this.movie);
+     console.log(this.movie);
+     this.movie = 'https://www.youtube.com/embed/' + this.movie;
+     console.log(this.movie);
+   }
+  $http({
+    method:'PUT',
+    url:'/posts/' + post._id,
+    data: {
+      type: post.type,
+      title: this.edtitle,
+      species: this.edspecies,
+      description: this.eddescription,
+      image: this.edimage,
+      movie: this.edmovie,
+      likes: post.likes,
+      user: controller.loggedInId
+    }
+  }).then(function(response){
+    console.log(response);
+    controller.getPosts();
+    controller.editForm = false;
+  })
  }
 
   // this.posts = [
