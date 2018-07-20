@@ -8,6 +8,7 @@ const postSchema = new Schema({
   description: String,
   image: String,
   movie: String,
+  story: String,
   likes: Number,
   user: [{
 
