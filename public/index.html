@@ -11,6 +11,42 @@
 
       <h1>Animals!</h1>
 
+      <!-- index before login -->
+            <div ng-if="!ctrl.loggedInId" ng-repeat="post in ctrl.posts= (posts|orderBy:randomize).slice(0, 1)">
+              <div id="image" ng-if="post.image" >
+                <img src="{{post.image}}" alt="">
+              </div>
+              <div id="movie" ng-if="post.movie">
+                <iframe src="{{post.movie}}" width="" height=""></iframe>
+              </div>
+              <div id="story" ng-if="post.description">
+                <textarea name="{{post.description}}" rows="8" cols="80"></textarea>
+              </div>
+            </div>
+              <!-- end of index before login -->
+              
+<!-- index to show all posts after member log in -->
+    <hr>
+    <ul>
+      <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts">
+        {{post.type}} - {{post.title}} - {{post.species}} - {{post.description}} - {{post.likes}}
+      </li>
+    </ul>
+      <div id="image" ng-if="post.image" >
+        <img src="{{post.image}}" alt="">
+      </div>
+      <div id="movie" ng-if="post.movie">
+        <iframe src="{{post.movie}}" width="" height=""></iframe>
+      </div>
+      <div id="story" ng-if="post.description">
+        <textarea name="{{post.description}}" rows="8" cols="80"></textarea>
+      </div>
+
+
+
+
+
+
       <div ng-if="!ctrl.loggedInId">
       <h2>Create User</h2>
         <form ng-submit="ctrl.createUser()">
@@ -26,6 +62,7 @@
               <input type="submit" value="Log In">
             </form>
         </div>
+
 
         <button ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</button>
     </body>

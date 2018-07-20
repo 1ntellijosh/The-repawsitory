@@ -4,6 +4,7 @@ app.controller('MyController', ['$http', function($http){
 
   const controller = this;
 
+
   this.createUser = function(){
     $http({
         method:'POST',
@@ -101,6 +102,10 @@ app.controller('MyController', ['$http', function($http){
         likes: 14
       }
     ]
+    this.randomize= function() {
+        return 0.5 - Math.random()
+
+      }
 
 
 }]);
