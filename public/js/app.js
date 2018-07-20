@@ -27,6 +27,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
         }
     }).then(function(response){
         console.log(response);
+        controller.includePath = '../partials/main.html';
     }, function(){
         console.log('error');
     });
@@ -56,6 +57,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }).then(function(response){
         controller.loggedInId = response.data._id;
         console.log(controller.loggedInId);
+        controller.includePath = '../partials/main.html';
     }, function(){
         console.log('error');
     });
@@ -113,6 +115,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
    }).then(function(response){
      console.log(response);
      controller.getPosts();
+     controller.includePath = '../partials/main.html';
    })
  }
 
@@ -179,4 +182,9 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
 
     this.randPost= this.posts
     this.getPosts();
+
+    this.includePath = '../partials/main.html';
+    this.changeInclude = (path) => {
+    this.includePath = '../partials/'+ path +'.html';
+  }
 }]);
