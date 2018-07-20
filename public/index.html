@@ -101,7 +101,8 @@
         </form>
 
         <!-- index before login -->
-                     <div ng-repeat="post in ctrl.posts = (ctrl.posts|orderBy:ctrl.randomize).slice(0, 1)">
+        <div ng-if="!ctrl.loggedInId">
+              <div ng-repeat="post in ctrl.randPost = (ctrl.posts|orderBy:ctrl.randomize).slice(0, 1)">
                        <article>
                          <h3>{{post.title}}
                        <div id="image" ng-if="post.image" >
@@ -116,6 +117,7 @@
                        <p>{{post.description}}</p>
                      </article>
                      </div>
+                   </div> 
          <!-- end of index before login -->
 
 
