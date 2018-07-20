@@ -8,6 +8,8 @@ $sceDelegateProvider.resourceUrlWhitelist([
 });
 
 app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope, $sce){
+  this.posts= []
+  this.post= ''
 
 
   const controller = this;
@@ -179,6 +181,23 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
       this.randomize = function () {
         return 0.3 - Math.random();
     };
+
+    this.deletePost= (id)=>{
+      $http({
+        method: 'DELETE',
+        url:'/posts/' + id
+      }).then(response=>{
+        const removeByIndex = this.posts.findIndex(post =>
+          post._id === id)
+          this.posts.splice(removeByIndex, 1)
+          console.log(response + 'this is the delete route');
+
+      }, error =>{
+        console.log(error);
+      })
+    }
+
+
 
     this.randPost= this.posts
     this.getPosts();
