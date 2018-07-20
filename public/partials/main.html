@@ -1,0 +1,40 @@
+<!-- index to show all posts after member log in -->
+<ul >
+  <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = post.movie;">
+        {{post.title}}  {{post.likes}}
+
+  <div id="image" ng-if="post.image">
+    <img ng-src="{{post.image}}" alt="">
+  </div>
+  <div id="movie" ng-if="post.movie">
+
+  <iframe width="100%" ng-src="{{getIframeSrc(post.movie)}}" frameborder="0 " allowfullscreen></iframe>
+
+  </div>
+  <div id="story" ng-if="post.description">
+    <p>
+      {{post.description}}
+    </p>
+  </div>
+  </li>
+</ul>
+
+<!-- index before login -->
+<div ng-if="!ctrl.loggedInId">
+      <div ng-repeat="post in ctrl.randPost = (ctrl.posts|orderBy:ctrl.randomize).slice(0, 1)">
+               <article>
+                 <h3>{{post.title}}
+               <div id="image" ng-if="post.image" >
+                 <img ng-src="{{post.image}}" alt="">
+               </div>
+               <div id="movie" ng-if="post.movie">
+                 <iframe src="{{post.movie}}" width="" height=""></iframe>
+               </div>
+               <div id="story" ng-if="post.description">
+                 <p>{{post.description}}</p>
+               </div>
+
+             </article>
+             </div>
+           </div>
+ <!-- end of index before login -->
