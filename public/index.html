@@ -30,7 +30,9 @@
 
       </div>
       <div id="story" ng-if="post.description">
-        <textarea name="{{post.description}}" rows="8" cols="80"></textarea>
+        <p>
+          {{post.description}}
+        </p>
       </div>
       </li>
     </ul>
@@ -77,12 +79,12 @@
             </select>
             <div ng-if="ctrl.type === 'story'">
               <label for="sDescription">Description: </label>
-              <textarea class="u-full-width" placeholder="Write your story here:" ng-model="ctrl.createForm.description" id="sDescription"></textarea>
+              <textarea class="u-full-width" placeholder="Write your story here:" ng-model="ctrl.description" id="sDescription"></textarea>
             </div>
 
             <div ng-if="ctrl.type === 'image' || ctrl.type === 'movie'">
               <label for="description">Description: </label>
-              <textarea class="u-full-width" placeholder="Details/Comments" ng-model="ctrl.createForm.description" id="description"></textarea>
+              <textarea class="u-full-width" placeholder="Details/Comments" ng-model="ctrl.description" id="description"></textarea>
             </div>
 
             <div id="" ng-if="ctrl.type === 'image' || ctrl.type === 'story'">
@@ -117,7 +119,7 @@
                        <p>{{post.description}}</p>
                      </article>
                      </div>
-                   </div> 
+                   </div>
          <!-- end of index before login -->
 
 
