@@ -16,7 +16,7 @@
       <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts">
         {{post.type}} - {{post.title}} - {{post.species}} - {{post.description}} - {{post.likes}}
       </li>
-    </ul>
+
       <div id="image" ng-if="post.image" >
         <img src="{{post.image}}" alt="">
       </div>
@@ -26,7 +26,7 @@
       <div id="story" ng-if="post.description">
         <textarea name="{{post.description}}" rows="8" cols="80"></textarea>
       </div>
-
+    </ul>
       <div ng-if="!ctrl.loggedInId">
       <h2>Create User</h2>
         <form ng-submit="ctrl.createUser()">
