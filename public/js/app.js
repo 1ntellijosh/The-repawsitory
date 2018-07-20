@@ -101,5 +101,15 @@ app.controller('MyController', ['$http', function($http){
         likes: 14
       }
     ]
-
+    //get posts function
+     this.getPosts = function(){
+       $http({
+         method:'GET',
+         url:'/posts',
+       }).then(function(response){
+         controller.posts = response.data.loggedInId
+       }), function(){
+         console.log('error');
+       }
+     }
 }]);
