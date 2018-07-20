@@ -207,3 +207,38 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     this.includePath = '../partials/'+ path +'.html';
   }
 }]);
+
+
+
+
+app.controller('petfinderController', ['$http', function($http){
+
+  this.appName ="Movie House"
+
+    this.baseURL= 'http://api.petfinder.com/pet.getRandom?format=json&'
+    this.apikey= 'key='+ '40cd84ccc829ff498eef92970e909146'
+    this.animalType= ''
+    this.searchURL= this.baseURL + this.apikey+ '&'+
+    this.animalType
+
+    console.log(this.searchURL);
+
+this.animal=[]
+this.animals=[]
+this.animalDetails= []
+
+this.getAnimals=()=>{
+  $http({
+      method: 'GET',
+      url:this.searchURL + this.animalType
+  }).then(response=> {
+    this.animals = response.data;
+
+  }, error => {
+    console.log(error)
+  }).catch(err => console.log('Catch :', err));
+  }
+
+
+
+}])
