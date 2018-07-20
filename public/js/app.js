@@ -37,8 +37,8 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
         method:'POST',
         url: '/sessions',
         data: {
-            username: this.username,
-            password: this.password
+            username: this.logUsername,
+            password: this.logPassword
         }
     }).then(function(response){
         console.log(response);
