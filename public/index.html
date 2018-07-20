@@ -45,8 +45,8 @@
 
         <h2>Log In</h2>
             <form ng-submit="ctrl.logIn()">
-              <input type="text" ng-model="ctrl.username" />
-              <input type="password" ng-model="ctrl.password" />
+              <input type="text" ng-model="ctrl.logUsername" />
+              <input type="password" ng-model="ctrl.logPassword" />
               <input type="submit" value="Log In">
             </form>
         </div>
@@ -107,7 +107,7 @@
                        <article>
                          <h3>{{post.title}}
                        <div id="image" ng-if="post.image" >
-                         <img src="{{post.image}}" alt="">
+                         <img ng-src="{{post.image}}" alt="">
                        </div>
                        <div id="movie" ng-if="post.movie">
                          <iframe src="{{post.movie}}" width="" height=""></iframe>
