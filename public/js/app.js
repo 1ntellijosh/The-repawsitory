@@ -173,5 +173,10 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
           }
       }
 
+      this.randomize = function () {
+        return 0.3 - Math.random();
+    };
+
+    this.randPost= this.posts
     this.getPosts();
 }]);
