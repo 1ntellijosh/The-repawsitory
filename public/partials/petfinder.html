@@ -1,0 +1,15 @@
+<!-- or welcome to {{appName}} if set to a variable in app.js  -->
+<h1>Welcome to Petfinder</h1>
+
+<!-- ng-model set to empty string in app.js -->
+<form ng-submit= "ctrl.getAnimals()">
+  <label for=""></label>
+  <input type="text" placeholder="search animals" ng-model="ctrl.animalType"/>
+  <button type="submit">Search</button>
+</form>
+<div ng-repeat="animals in ctrl.animals">
+    <img src="https://www.petfinder.com/common/images/design/mastheads/no_logos_tophat-3-2010.png" alt="petfinder logo">
+    <h3>Type: {{animal.animal}}</h3>
+    
+
+</div>
