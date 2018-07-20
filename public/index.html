@@ -29,7 +29,6 @@
       <iframe width="100%" ng-src="{{getIframeSrc(post.movie)}}" frameborder="0 " allowfullscreen></iframe>
 
       </div>
-      {{post.description}}
       <div id="story" ng-if="post.description">
         <p>
           {{post.description}}
@@ -85,7 +84,7 @@
 
             <div ng-if="ctrl.type === 'image' || ctrl.type === 'movie'">
               <label for="description">Description: </label>
-              <textarea class="u-full-width" placeholder="Details/Comments" ng-model="ctrl.createForm.description" id="description"></textarea>
+              <textarea class="u-full-width" placeholder="Details/Comments" ng-model="ctrl.description" id="description"></textarea>
             </div>
 
             <div id="" ng-if="ctrl.type === 'image' || ctrl.type === 'story'">
@@ -102,24 +101,6 @@
             </div>
             <input type="submit" value="Add Post"/>
         </form>
-
-        <!-- index before login -->
-                     <div ng-repeat="post in ctrl.posts = (ctrl.posts|orderBy:ctrl.randomize).slice(0, 1)">
-                       <article>
-                         <h3>{{post.title}}
-                       <div id="image" ng-if="post.image" >
-                         <img src="{{post.image}}" alt="">
-                       </div>
-                       <div id="movie" ng-if="post.movie">
-                         <iframe src="{{post.movie}}" width="" height=""></iframe>
-                       </div>
-                       <div id="story" ng-if="post.description">
-                         <textarea name="{{post.description}}" rows="8" cols="80"></textarea>
-                       </div>
-                       <p>{{post.description}}</p>
-                     </article>
-                     </div>
-         <!-- end of index before login -->
 
 
     </body>

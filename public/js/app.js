@@ -172,10 +172,6 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
               return 'error';
           }
       }
-      
-      this.randomize = function () {
-        return 0.3 - Math.random();
-    };
 
     this.getPosts();
 }]);
