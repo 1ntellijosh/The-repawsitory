@@ -103,7 +103,8 @@
         </form>
 
       <!-- index before login -->
-                <div ng-repeat="post in ctrl.posts = (ctrl.posts|orderBy:ctrl.randomize).slice(0, 1)">
+                <div ng-if="!ctrl.loggedInId"
+                ng-repeat="post in ctrl.posts = (ctrl.posts|orderBy:ctrl.randomize).slice(0, 1)">
                   <article>
                     <h3>{{post.title}}
                   <div id="image" ng-if="post.image" >
