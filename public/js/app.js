@@ -130,4 +130,8 @@ app.controller('MyController', ['$http', function($http){
          console.log('error');
        }
      }
+
+   this.randomize = function () {
+        return 0.3 - Math.random();
+    };
 }]);
