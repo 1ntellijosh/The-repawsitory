@@ -15,6 +15,7 @@
     <p>
       {{post.description}}
     </p>
+<div ng-if="ctrl.loggedInId" ng-click="ctrl.deletePost(post._id)">Delete</div>
   </div>
   </li>
 </ul>
@@ -33,6 +34,7 @@
                <div id="story" ng-if="post.description">
                  <p>{{post.description}}</p>
                </div>
+
 
              </article>
              </div>
