@@ -53,11 +53,29 @@ app.controller('MyController', ['$http', function($http){
         url: '/sessions'
     }).then(function(response){
         console.log(response);
-        controller.loggedInUserName = null;
+        controller.loggedInId = null;
     }, function(){
         console.log('error');
     });
   }
+
+  this.createPost = function(id){
+   $http({
+     method:'POST',
+     url:'/posts',
+     data: {
+       type: this.type,
+       title: this.title,
+       species: this.species,
+       description: this.description,
+       image: this.image,
+       movie: this.movie,
+       user: id
+     }
+   }).then(function(response){
+     console.log(response);
+   })
+ }
 
   this.posts = [
       {
