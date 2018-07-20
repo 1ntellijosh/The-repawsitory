@@ -17,7 +17,7 @@
 <!-- index to show all posts after member log in -->
     <hr>
     <ul >
-      <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts">
+      <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = post.movie;">
         {{post.type}} - {{post.title}} - {{post.species}} - {{post.description}} - {{post.likes}} - {{post.image}} - {{post.movie}}
 
 
@@ -25,9 +25,9 @@
         <img ng-src="{{post.image}}" alt="">
       </div>
       <div id="movie" ng-if="post.movie">
-        <iframe width="420" height="315"
-src="https://youtu.be/EYM-B9jAflM">
-</iframe>
+
+      <iframe width="100%" ng-src="{{getIframeSrc(post.movie)}}" frameborder="0 " allowfullscreen></iframe>
+
       </div>
       <div id="story" ng-if="post.description">
         <textarea name="{{post.description}}" rows="8" cols="80"></textarea>

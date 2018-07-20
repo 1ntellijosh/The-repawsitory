@@ -1,9 +1,21 @@
 const app = angular.module('AnimalApp', []);
 
-app.controller('MyController', ['$http', function($http){
+app.config(function($sceDelegateProvider) {
+$sceDelegateProvider.resourceUrlWhitelist([
+  'self',
+  'https://www.youtube.com/**'
+]);
+});
+
+app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope, $sce){
+
 
   const controller = this;
   this.loggedInId = null;
+
+  $scope.getIframeSrc = function(src) {
+    return  src;
+  };
 
   this.createUser = function(){
     $http({
@@ -61,7 +73,31 @@ app.controller('MyController', ['$http', function($http){
     });
   }
 
+  this.getPosts = function(){
+    $http({
+      method:'GET',
+      url:'/posts',
+    }).then(function(response){
+      controller.posts = response.data
+      console.log(response.data);
+      // for (let i = 0; i < controller.posts.length; i++) {
+      //   if(controller.posts[i].type = 'movie') {
+      //
+      //   }
+      // }
+    }), function(){
+      console.log('error');
+    }
+  }
+
   this.createPost = function(id){
+
+    if (this.movie) {
+      this.movie = getId(this.movie);
+      console.log(this.movie);
+      this.movie = 'https://www.youtube.com/embed/' + this.movie;
+      console.log(this.movie);
+    }
    $http({
      method:'POST',
      url:'/posts',
@@ -76,7 +112,7 @@ app.controller('MyController', ['$http', function($http){
      }
    }).then(function(response){
      console.log(response);
-     this.getPosts();
+     controller.getPosts();
    })
  }
 
@@ -124,17 +160,18 @@ app.controller('MyController', ['$http', function($http){
   //   ]
 
     // get posts function
-     this.getPosts = function(){
-       $http({
-         method:'GET',
-         url:'/posts',
-       }).then(function(response){
-         controller.posts = response.data
-         console.log(response.data);
-       }), function(){
-         console.log('error');
-       }
-     }
+
+
+      function getId(url) {
+          var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+          var match = url.match(regExp);
+
+          if (match && match[2].length == 11) {
+              return match[2];
+          } else {
+              return 'error';
+          }
+      }
 
     this.getPosts();
 }]);
