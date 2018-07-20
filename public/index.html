@@ -18,8 +18,7 @@
     <hr>
     <ul >
       <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = post.movie;">
-        {{post.type}} - {{post.title}} - {{post.species}} - {{post.description}} - {{post.likes}} - {{post.image}} - {{post.movie}}
-
+            {{post.title}}  {{post.likes}}
 
       <div id="image" ng-if="post.image">
         <img ng-src="{{post.image}}" alt="">
