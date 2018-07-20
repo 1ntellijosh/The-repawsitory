@@ -46,6 +46,53 @@
 
         <button ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</button>
 
+        <h2> Add New Post </h2>
+        <form ng-submit="ctrl.createPost(ctrl.loggedInId)">
+          <div id="overWrap">
+            <label for="type">Type of Post: </label>
+              <select id="type" name="type" ng-model="ctrl.type">
+                <option value="story">Story</option>
+                <option value="image">Picture</option>
+                <option value="movie">Movie</option>
+              </select>
+              <!-- {{ ctrl.type }} -->
+          <div id="inWrap">
+            <label for="title">Title: </label>
+            <input type="title" ng-model="ctrl.title" placeholder="Post Title"/>
+          </div>
+          <label for="species">Animal: </label>
+            <select id="species" name="species" ng-model="ctrl.species">
+              <option value="Cat">Cat</option>
+              <option value="Dog">Dog</option>
+              <option value="Bird">Bird</option>
+              <option value="Fish">Fish</option>
+              <option value="Other">Other</option>
+            </select>
+            <div ng-if="ctrl.type === 'story'">
+              <label for="sDescription">Description: </label>
+              <textarea class="u-full-width" placeholder="Write your story here:" ng-model="ctrl.createForm.description" id="sDescription"></textarea>
+            </div>
+
+            <div ng-if="ctrl.type === 'image' || ctrl.type === 'movie'">
+              <label for="description">Description: </label>
+              <textarea class="u-full-width" placeholder="Details/Comments" ng-model="ctrl.createForm.description" id="description"></textarea>
+            </div>
+
+            <div id="" ng-if="ctrl.type === 'image' || ctrl.type === 'story'">
+              <div id="inWrap">
+                <label for="image">Image: </label>
+                <input type="text" ng-model="ctrl.image" placeholder="Image url"/>
+              </div>
+            </div>
+            <div id="" ng-if="ctrl.type === 'movie'">
+              <div id="inWrap">
+                <label for="movie">Movie: </label>
+                <input type="movie" ng-model="ctrl.movie" placeholder="Movie url"/>
+              </div>
+            </div>
+            <input type="submit" value="Add Post"/>
+        </form>
+
 
     </body>
 </html>
