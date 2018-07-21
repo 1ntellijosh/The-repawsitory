@@ -18,10 +18,11 @@
 
       <h1>Animals!</h1>
     <form ng-submit="ctrl.getDogBreeds()">
-      <button ng-model="ctrl.breeds" type="submit">Fetch</button>
+      <h4>See Dog Breeds</h4>
+      <button type="submit">Fetch</button>
     </form>
-    <div ng-repeat="breed in ctrl.dogBreeds">
-      <h2>Breed: {{breed.breeds}}</h2>
+    <div ng-model="ctrl.breeds" ng-repeat="dogBreed in ctrl.dogBreeds">
+      <h2>Breed: {{ ctrl.dogBreeds }}</h2>
     </div>
     <hr>
     <div >

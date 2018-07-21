@@ -245,12 +245,12 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }
   this.dogBreeds = [];
   this.breeds = '';
-  this.baseURL = 'https://dog.ceo/api/breeds/list/all';
+  this.format = 'json'
 
-  this.getDogBreeds = ()=>{
+  this.getDogBreeds = function(){
     $http({
       method:'GET',
-      url: this.baseURL
+      url: 'https://dog.ceo/api/breeds/list/all' + this.breeds
     }).then(response => {
       this.dogBreeds = response.data;
       console.log(response);
