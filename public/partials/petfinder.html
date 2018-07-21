@@ -1,19 +1,12 @@
 
-
-
-<h1>Welcome to {{petFinder}}</h1>
-
 <!-- ng-model set to empty string in app.js -->
-<div >
-
-</div>
+<h1>Welcome to PetFinder</h1>
 <form ng-submit= "ctrl.getAnimals()">
-  <label for=""></label>
   <input type="text" placeholder="search animals" ng-model="ctrl.animalType"/>
   <button type="submit">Search</button>
 </form>
 <div ng-repeat="animal in ctrl.animals">
     <img ng-src="https://www.petfinder.com/common/images/design/mastheads/no_logos_tophat-3-2010.png" alt="petfinder logo">
-    <h3>Type:{{animals.animals}}</h3>
-    <h3>Details: {{animal.animalDetails}}</h3>
+    <h3>Type:{{animal.animals}}</h3>
+    <h3>Details: {{animal.breed}}</h3>
 </div>
