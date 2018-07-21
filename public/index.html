@@ -2,7 +2,7 @@
 <html ng-app="AnimalApp">
     <head>
         <meta charset="utf-8" >
-        <title></title>
+        <title>The re•<span id="paws">PAWS</span>•itory</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
         <script src="/js/app.js" charset="utf-8"></script>
         <link rel="stylesheet" href="/css/app.css">
@@ -10,18 +10,40 @@
     <body ng-controller="MyController as ctrl">
 
     <div id="header">
-      <h5 ng-if="ctrl.loggedInId" ng-click="ctrl.changeInclude('makepost')">Make Post</h5>
-      <button ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</button>
-      <h5 ng-if="!ctrl.loggedInId" ng-click="ctrl.changeInclude('login')">Log In</h5>
-      <h5 ng-if="!ctrl.loggedInId" ng-click="ctrl.changeInclude('register')">Register</h5>
+      <div id="headLinkHolder">
+
+        <div id="headRight">
+          <a href="#"  ng-click="ctrl.changeInclude('makepost')">About</a>
+          <a href="#" ng-click="ctrl.changeInclude('')">Links</a>
+          <a href="#" ng-click="ctrl.changeInclude('makepost')">Adopt An Animal</a>
+        </div>
+      </div>
+    </div>
+    <div id="bannerOverlay" >
+
+      <div id="banner">
+        <img id="banImg" src="../images/animals.png" />
+      </div>
+      <div id="rotateDiv">
+        <h1 id="siteName">The Re<span id="paws">•PAWS•</span>itory</h1>
+        <h4 id="siteSub">For All Things Animal</h4>
+      </div>
     </div>
 
-      <h1>Animals!</h1>
+    <div id="menu">
+      <div id="menLinks">
+        <a href="#" ng-if="!ctrl.loggedInId" ng-click="ctrl.changeInclude('login')">Log In</a>
+        <a href="#" ng-if="!ctrl.loggedInId" ng-click="ctrl.changeInclude('register')">Register</a>
+        <a href="#" ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</a>
+        <a href="#" ng-click="ctrl.changeInclude('makepost')">Make Post</a>
+      </div>
+    </div>
+
+    <div id="waterFall">
+      <div id="content"
+        ng-include="ctrl.includePath"></div>
+    </div>
 
 
-    <hr>
-
-    <div ng-include="ctrl.includePath"></div>
-    
     </body>
 </html>

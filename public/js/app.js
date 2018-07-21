@@ -15,7 +15,6 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   const controller = this;
   this.loggedInId = null;
   this.showPost = null;
-  this.editForm = false;
 
   $scope.getIframeSrc = function(src) {
     return  src;
@@ -155,7 +154,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }).then(function(response){
     console.log(response);
     controller.getPosts();
-    controller.editForm = false;
+    controller.includePath = '../partials/main.html';
   })
  }
 
