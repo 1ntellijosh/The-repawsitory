@@ -17,8 +17,12 @@
     </div>
 
       <h1>Animals!</h1>
-
-
+    <form ng-submit="ctrl.getDogBreeds()">
+      <button ng-model="ctrl.breeds" type="submit">Fetch</button>
+    </form>
+    <div ng-repeat="breed in ctrl.dogBreeds">
+      <h2>Breed: {{breed.breeds}}</h2>
+    </div>
     <hr>
     <div >
       <h5  ng-click="ctrl.changeInclude('petfinder')">Petfinder</h5>

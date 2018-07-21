@@ -243,29 +243,22 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     this.changeInclude = (path) => {
     this.includePath = '../partials/'+ path +'.html';
   }
+  this.dogBreeds = [];
+  this.breeds = '';
+  this.baseURL = 'https://dog.ceo/api/breeds/list/all';
 
-  // this.animalType = '';
-  // this.baseURL = 'http://api.petfinder.com/animal.getRandom?=40cd84ccc829ff498eef92970e909146';
-  // this.format = 'json';
-  // this.apikey = 'apikey=' + '40cd84ccc829ff498eef92970e909146';
-  // this.searchURL= this.baseURL + this.format + '&' + this.apikey + "&" +  + "&output=basic";
-  // console.log(this.searchURL);
-  //
-  // this.animalDetails = [];
-  // this.animal =[];
-  // this.animals = [];
-  //
-  // this.getAnimals = () => {
-  //   $http({
-  //     method: 'GET',
-  //     url: this.searchURL + this.animalType
-  //   }).then(response =>{
-  //     this.animal = response.data;
-  //     console.log(response.data);
-  //   }, error => {
-  //     console.log(error);
-  //   }).catch( err => console.error('Catch: ', err))
-  // }
+  this.getDogBreeds = ()=>{
+    $http({
+      method:'GET',
+      url: this.baseURL
+    }).then(response => {
+      this.dogBreeds = response.data;
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
+  }
+
 }]);
 
  // app.controller('petfinderController', ['$http', function($http){
