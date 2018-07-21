@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body ng-controller="MyController as ctrl">
-
+    <div >
     <div id="header">
       <h5 ng-if="ctrl.loggedInId" ng-click="ctrl.changeInclude('makepost')">Make Post</h5>
       <button ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</button>
@@ -22,6 +22,14 @@
     <hr>
 
     <div ng-include="ctrl.includePath"></div>
-    
+
+
+    </div>
+
+    </div >
+    <div >
+      <h5  ng-click="ctrl.changeInclude('petfinder')">Petfinder</h5>
+
+    </div>
     </body>
 </html>
