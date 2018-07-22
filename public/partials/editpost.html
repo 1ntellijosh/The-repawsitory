@@ -1,0 +1,40 @@
+<h5>Post Edit</h5>
+<form ng-submit="ctrl.editPost(ctrl.showPost)">
+  <div id="overWrap">
+
+  <div id="inWrap">
+    <label for="title">Title: </label>
+    <input type="title" ng-model="ctrl.edtitle" value="{{ctrl.showPost.title}}" placeholder="{{ctrl.showPost.title}}"/>
+  </div>
+  <label for="species">Animal: </label>
+    <select id="species" name="species" ng-model="ctrl.edspecies">
+      <option value="Cat">Cat</option>
+      <option value="Dog">Dog</option>
+      <option value="Bird">Bird</option>
+      <option value="Fish">Fish</option>
+      <option value="Other">Other</option>
+    </select>
+    <div ng-if="ctrl.showPost.type === 'story'">
+      <label for="sDescription">Description: </label>
+      <textarea class="u-full-width" placeholder="{{ctrl.showPost.description}}" value="{{ctrl.showPost.description}}" ng-model="ctrl.eddescription" id="sDescription"></textarea>
+    </div>
+
+    <div ng-if="ctrl.showPost.type === 'image' || ctrl.type === 'movie'">
+      <label for="description">Description: </label>
+      <textarea class="u-full-width" placeholder="{{ctrl.showPost.description}}" value="{{ctrl.showPost.description}}" ng-model="ctrl.eddescription" id="description" >{{ctrl.showPost.description}}</textarea>
+    </div>
+
+    <div id="" ng-if="ctrl.showPost.type === 'image' || ctrl.type === 'story'">
+      <div id="inWrap">
+        <label for="image">Image: </label>
+        <input type="text" ng-model="ctrl.edimage" placeholder="{{ctrl.showPost.image}}"/>
+      </div>
+    </div>
+    <div id="" ng-if="ctrl.showPost.type === 'movie'">
+      <div id="inWrap">
+        <label for="movie">Movie: </label>
+        <input type="movie" ng-model="ctrl.edmovie" placeholder="{{ctrl.showPost.movie}}"/>
+      </div>
+    </div>
+    <input type="submit" value="Edit Post"/>
+</form>

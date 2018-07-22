@@ -1,0 +1,8 @@
+<div ng-if="!ctrl.loggedInId">
+<h2>Log In</h2>
+    <form ng-submit="ctrl.logIn()">
+      <input type="text" ng-model="ctrl.logUsername" />
+      <input type="password" ng-model="ctrl.logPassword" />
+      <input type="submit" value="Log In">
+    </form>
+</div>
