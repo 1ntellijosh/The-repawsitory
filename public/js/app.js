@@ -19,6 +19,8 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   controller.showPostForm = false;
   controller.logForm = false;
   controller.regForm = false;
+  controller.logUsername = '';
+  controller.randPost = {};
 
   $scope.getIframeSrc = function(src) {
     return  src;
@@ -90,6 +92,10 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     });
   }
 
+  this.randomize = function () {
+      return Math.floor(Math.random() * controller.posts.length);
+  };
+
   this.getPosts = function(){
     $http({
       method:'GET',
@@ -97,11 +103,8 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }).then(function(response){
       controller.posts = response.data
       console.log(response.data);
-      // for (let i = 0; i < controller.posts.length; i++) {
-      //   if(controller.posts[i].type = 'movie') {
-      //
-      //   }
-      // }
+      controller.randPost = controller.posts[controller.randomize()];
+      console.log(controller.randPost);
     }), function(){
       console.log('error');
     }
@@ -231,10 +234,6 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
           }
       }
 
-      this.randomize = function () {
-        return 0.3 - Math.random();
-    };
-
     this.deletePost= (id)=>{
       $http({
         method: 'DELETE',
@@ -250,9 +249,9 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
       })
     }
 
-
-    this.randPost= this.posts
     this.getPosts();
+    this.randPost= controller.posts[controller.randomize()];
+
 
     this.includePath = '../partials/main.html';
     this.changeInclude = (path) => {
