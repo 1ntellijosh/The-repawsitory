@@ -19,6 +19,9 @@ router.get('/user/:id', (req, res) => {
     res.json(foundUser)
     }).populate('posts');
   });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2f71ea987170fcaf6da4f71efcfad58e0ab6b1ad
 
 module.exports = router;
