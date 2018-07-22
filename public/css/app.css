@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Cormorant+Unicase|Knewave|Lora|Playfair+Display|Shadows+Into+Light');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Cormorant+Unicase|Knewave|Lora|Playfair+Display|Shadows+Into+Light|Oswald');
 body {
   font-family: 'Playfair Display', serif;
   margin-top: 2px;
@@ -46,7 +46,7 @@ a:hover {
 #bannerOverlay {
 }
 #rotateDiv {
-  height: 205px;
+  height: 180px;
   width: 75%;
   margin: 0 auto;
   /* display: flex;
@@ -61,7 +61,7 @@ a:hover {
   height: 160px;
   width: 100%;
   position: absolute;
-  top: 93px;
+  top: 63px;
   left: 0;
   overflow: hidden;
   display: flex;
@@ -78,7 +78,7 @@ a:hover {
   font-family: 'Shadows Into Light', cursive;
 }
 #siteSub {
-  margin: 0 0 0 17%;
+  margin: 0 0 0 15%;
 }
 /* menu */
 #menu {
@@ -108,10 +108,61 @@ a:hover {
   background: -webkit-linear-gradient(top, #212121 0%,#333333 2%,#424242 4%,#4c4c4c 6%,#4c4c4c 6%,#5b5b5b 8%,#757575 11%,#878787 13%,#999999 15%,#aaaaaa 17%,#bababa 19%,#d1d1d1 22%,#dddddd 24%,#e5e5e5 26%,#ededed 28%,#efefef 29%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #212121 0%,#333333 2%,#424242 4%,#4c4c4c 6%,#4c4c4c 6%,#5b5b5b 8%,#757575 11%,#878787 13%,#999999 15%,#aaaaaa 17%,#bababa 19%,#d1d1d1 22%,#dddddd 24%,#e5e5e5 26%,#ededed 28%,#efefef 29%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#efefef',GradientType=0 );
-  min-height: 600px;
+  min-height: 425px;
 }
 #content {
   width: 75%;
   background: rgb(239 239 239);
   margin: 0 auto;
+}
+/* index Before login */
+#featuredPost {
+  width: 87%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#featuredImage img {
+  height: 300px;
+  margin-right: 8px;
+  border-radius: 10px;
+  -moz-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+-webkit-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+  border-radius: 3px;
+}
+#bulletL {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  margin-left: 8px;
+}
+#bulletL img {
+  height: 15px;
+  margin-bottom: 1px
+}
+#Like {
+  /* font-size: 1.6em;
+  margin-bottom: 15px;
+  margin-left: 8px; */
+}
+#Like img {
+  height: 15px;
+  margin-bottom: 1px
+}
+#likeCount {
+  font-family: 'Oswald', sans-serif;
+}
+#featuredPost iframe {
+  height: 300px;
+}
+#featureLeft {
+  margin-right: 30px;
+}
+#featureRight {
+  display: flex;
+  align-items: center;
 }

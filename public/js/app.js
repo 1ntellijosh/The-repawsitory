@@ -113,6 +113,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
        description: this.description,
        image: this.image,
        movie: this.movie,
+       likes: 0,
        user: id
      }
    }).then(function(response){
