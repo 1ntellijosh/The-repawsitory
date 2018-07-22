@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body ng-controller="MyController as ctrl">
-
+    <div id="container">
     <div id="header">
       <div id="headLinkHolder">
 
@@ -41,8 +41,17 @@
 
     <div id="waterFall">
       <div id="content"
-        ng-include="ctrl.includePath"></div>
+        ng-include="ctrl.includePath">
+      </div>
+      <footer>
+        <div id="footBlack">
+          <div id="creators">
+            Created by Alexis Bohlander, Kellie Dambroso, and Joshua Payne
+          </div>
+        </div>
+      </footer>
     </div>
+
 
     <!-- log in form -->
     <div class="logMod" ng-class="(ctrl.logForm === true ? 'log' : '' )">
@@ -161,10 +170,10 @@
           <input type="submit" value="Add Post"/>
           <a href="#" ng-click="ctrl.showPostForm = false">Cancel</a>
       </form>
-
     </div>
-    <footer>
-
-    </footer>
+    </div>
+    </div>
     </body>
+
+
 </html>
