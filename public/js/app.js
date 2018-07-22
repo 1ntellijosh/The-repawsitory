@@ -19,11 +19,8 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   controller.showPostForm = false;
   controller.logForm = false;
   controller.regForm = false;
-<<<<<<< HEAD
-=======
   controller.logUsername = '';
   controller.randPost = {};
->>>>>>> 29bc269dd47575f4fa90cc867cf00ef2f686103c
 
   $scope.getIframeSrc = function(src) {
     return  src;
@@ -96,7 +93,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }
 
   this.randomize = function () {
-      return Math.floor(Math.random() * controller.posts.length);
+      return Math.floor(Math.random() * controller.posts.length);
   };
 
   this.getPosts = function(){
@@ -252,11 +249,6 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
       })
     }
 
-<<<<<<< HEAD
-
-    this.randPost= this.posts
-=======
->>>>>>> 29bc269dd47575f4fa90cc867cf00ef2f686103c
     this.getPosts();
     this.randPost= controller.posts[controller.randomize()];
 
@@ -267,38 +259,38 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }
 }]);
 
-// app.controller('petfinderController', ['$http', function($http){
-//
-//   this.appName ="Movie House"
-//
-//     this.baseURL= 'http://api.petfinder.com/pet.getRandom?'
-//     this.format= 'json'
-//     this.apikey= 'key='+ '40cd84ccc829ff498eef92970e909146'
-//     this.animalType= ''
-//     this.searchURL= this.baseURL + this.format + '&' + this.apikey + "&"
-//     + "&output=basic"
-//
-//     console.log(this.searchURL);
-//
-//     http://api.petfinder.com/pet.getRandom?json&key=40cd84ccc829ff498eef92970e909146&animal=cat&output=basic
-//
-// this.animal=[]
-// this.animals=[]
-// this.animalDetails= []
-//
-// this.getAnimals=()=>{
-//   $http({
-//       method: 'GET',
-//       url:this.searchURL
-//   }).then(response=> {
-//     this.animals = response.data;
-//     console.log(response);
-//
-//   }, error => {
-//     console.log(error)
-//   }).catch(err => console.log('Catch :', err));
-//   }
-//
-//
-//
-// }])
+app.controller('petfinderController', ['$http', '$scope','$sce', function($http, $scope, $sce){
+
+
+    this.baseURL= 'http://api.petfinder.com/pet.find?'
+    this.format= 'format=json'
+    this.apikey= 'key='+ '40cd84ccc829ff498eef92970e909146'
+    this.animalType= 'animal='
+    this.location="location="
+    this.searchURL= this.baseURL + this.format + '&' + this.apikey
+    this.end="&output=basic"
+
+    console.log(this.searchURL);
+
+  http://api.petfinder.com/pet.find?format=json&key=40cd84ccc829ff498eef92970e909146&animal=cat&location=74012&output=basic&callback=
+
+this.animal=[]
+this.animals=[]
+this.animalDetails= []
+
+this.getAnimals=()=>{
+  $http({
+      method: 'GET',
+      url:this.searchURL+ "&"+ this.animalType + '&'+ this.location + this.end
+  }).then(response=> {
+    this.animals = response.data;
+    console.log(response);
+
+  }, error => {
+    console.log(error)
+  }).catch(err => console.log('Catch :', err));
+  }
+
+
+
+}])
