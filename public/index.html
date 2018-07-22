@@ -172,9 +172,19 @@
           <a href="#" ng-click="ctrl.showPostForm = false">Cancel</a>
       </form>
     </div>
+
     </div>
     </div>
+
     </body>
+    <div ng-controller="petfinderController as ctrl">
+
+  <form name="getAnimals" ng-submit="ctrl.getAnimals()">
+    <input type="text" placeholder="animal" ng-model="ctrl.animalType">
+    <input type="text" placeholder="location" ng-model="ctrl.location">
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
 
 </html>
