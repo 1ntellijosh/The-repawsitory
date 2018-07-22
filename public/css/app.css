@@ -119,6 +119,7 @@ a:hover {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#efefef',GradientType=0 );
   min-height: 500px;
   padding-bottom: 100px;
+
 }
 #content {
   width: 75%;
@@ -182,6 +183,7 @@ box-shadow:
   display: flex;
   align-items: center;
 }
+
 #featuredSPost {
   width: 93%;
   margin: 0px auto;
@@ -191,6 +193,7 @@ box-shadow:
   justify-content: space-between;
   border:1px solid black;
 }
+
 form a {
   color: black;
 }
