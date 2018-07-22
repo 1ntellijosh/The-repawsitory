@@ -46,7 +46,7 @@
 <!-- index before login -->
 <div ng-if="!ctrl.loggedInId">
       <div ng-if="ctrl.randPost.type === 'image' || ctrl.randPost.type === 'movie'">
-         <article id="featuredSPost">
+         <article id="featuredPost">
           <div id="featureLeft">
             <div id="bulletL">
               <img  src="../images/paw large.png" /> Featured Post:
@@ -54,7 +54,7 @@
             <div id="featuredImage" ng-if="ctrl.randPost.image">
               <img ng-src="{{ctrl.randPost.image}}" alt="">
             </div>
-            <div id="movie" ng-if="ctrl.randPost.movie">
+            <div id="featuredMovie" ng-if="ctrl.randPost.movie">
               <iframe src="{{ctrl.randPost.movie}}" width="" height="" allowfullscreen></iframe>
             </div>
           </div>
@@ -82,6 +82,7 @@
 
        </article>
        </div>
+       <!-- working on this -->
        <!-- feature post if it is a story -->
        <div ng-if="ctrl.randPost.type === 'story'">
           <article id="featuredPost">

@@ -139,7 +139,7 @@ a:hover {
   border:1px solid black;
 }
 #featuredImage img {
-  height: 300px;
+  height: 275px;
   margin-right: 8px;
   border-radius: 10px;
   -moz-box-shadow:
@@ -171,9 +171,10 @@ box-shadow:
 #likeCount {
   font-family: 'Oswald', sans-serif;
 }
-#featuredPost iframe {
-  height: 300px;
+#featuredMovie iframe {
+  height: 275px;
 }
+
 #featureLeft {
   margin-right: 30px;
 }
