@@ -122,11 +122,13 @@ a:hover {
 }
 /* index Before login */
 #featuredPost {
-  width: 87%;
+  width: 93%;
   margin: 0px auto;
+  padding: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border:1px solid black;
 }
 #featuredImage img {
   height: 300px;
