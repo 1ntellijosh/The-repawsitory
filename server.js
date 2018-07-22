@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const session = require('express-session');
 
@@ -20,7 +21,7 @@ app.use('/users', userController);
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 
-mongoose.connect('mongodb://localhost:27017/repawsitory');
+const mongoUri =  process.env.MONGODB_URI || 'mongodb://localhost:27017/repawsitory';
 
 app.get('/app', function(req, res){
     if(req.session.currentUser){
@@ -33,7 +34,7 @@ app.get('/app', function(req, res){
     }
 });
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log('listening...');
 });
 

@@ -2,28 +2,191 @@
 <html ng-app="AnimalApp">
     <head>
         <meta charset="utf-8" >
-        <title></title>
+        <title>The Re•PAWS•itory</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
         <script src="/js/app.js" charset="utf-8"></script>
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body ng-controller="MyController as ctrl">
-
+    <div id="container">
     <div id="header">
-      <h5 ng-if="ctrl.loggedInId" ng-click="ctrl.changeInclude('makepost')">Make Post</h5>
-      <button ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</button>
-      <h5 ng-if="!ctrl.loggedInId" ng-click="ctrl.changeInclude('login')">Log In</h5>
-      <h5 ng-if="!ctrl.loggedInId" ng-click="ctrl.changeInclude('register')">Register</h5>
+      <div id="headLinkHolder">
+
+        <div id="headRight">
+          <a href="#"  ng-click="ctrl.changeInclude('makepost')">About</a>
+          <a href="#" ng-click="ctrl.changeInclude('')">Links</a>
+          <a href="#" ng-click="ctrl.changeInclude('makepost')">Adopt An Animal</a>
+        </div>
+      </div>
+    </div>
+    <div id="bannerOverlay" >
+
+      <div id="banner">
+        <img id="banImg" src="../images/animals.png" />
+      </div>
+      <div id="rotateDiv">
+        <h1 id="siteName">The Re<span id="paws">•PAWS•</span>itory</h1>
+        <h4 id="siteSub">For All Things Animal</h4>
+      </div>
     </div>
 
+    <div id="menu">
+      <div id="menLinks">
+        <a href="#" ng-if="!ctrl.loggedInId" ng-click="ctrl.openLogIn()">Log In</a>
+        <a href="#" ng-if="!ctrl.loggedInId" ng-click="ctrl.setReg()">Register</a>
+        <a href="#" ng-if="ctrl.loggedInId" ng-click="ctrl.logOff()">Log Off</a>
+        <a href="#" ng-click="ctrl.setPostForm()">Make Post</a>
+      </div>
+    </div>
+
+    <div id="waterFall">
+      <div id="content"
+        ng-include="ctrl.includePath">
+      </div>
+      <footer>
+        <img src="/images/beagle look up.png" />
+        <div id="footBlack">
+          <div id="creators">
+            Created by Alexis Bohlander, Kellie Dambroso, and Joshua Payne
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- log in form -->
+    <div class="logMod" ng-class="(ctrl.logForm === true ? 'log' : '' )">
+    <h2>Log In</h2>
+        <form ng-submit="ctrl.logIn()">
+          <input type="text" ng-model="ctrl.logUsername" />
+          <input type="password" ng-model="ctrl.logPassword" />
+          <input type="submit" value="Log In">
+          <a href="#" ng-click="ctrl.logForm = false">Cancel</a>
+        </form>
+    </div>
+
+
       <h1>Animals!</h1>
-    
-
-
 
     <hr>
-
+    <div >
+      <h5  ng-click="ctrl.changeInclude('petfinder')">Petfinder</h5>
+    </div>
     <div ng-include="ctrl.includePath"></div>
+    </div>
+    </div >
+
+    <!-- Register form -->
+    <div class="logMod" ng-class="(ctrl.regForm === true ? 'log' : '' )">
+    <h2>Create User</h2>
+      <form ng-submit="ctrl.createUser()">
+        <input type="text" ng-model="ctrl.username" />
+        <input type="password" ng-model="ctrl.password" />
+        <input type="submit" value="Create User">
+        <a href="#" ng-click="ctrl.regForm = false">Cancel</a>
+      </form>
+    </div>
+
+    <!-- edit post modal -->
+    <div class="modal" ng-class="(ctrl.editFormToShow === true ? 'edit' : '' )">
+      <h5>Post Edit</h5>
+      <form ng-submit="ctrl.editPost(ctrl.showPost)">
+        <div id="overWrap">
+
+        <div id="inWrap">
+          <label for="title">Title: </label>
+          <input type="title" ng-model="ctrl.edtitle" value="{{ctrl.showPost.title}}" placeholder="{{ctrl.showPost.title}}"/>
+        </div>
+        <label for="species">Animal: </label>
+          <select id="species" name="species" ng-model="ctrl.edspecies">
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Bird">Bird</option>
+            <option value="Fish">Fish</option>
+            <option value="Other">Other</option>
+          </select>
+          <div ng-if="ctrl.showPost.type === 'story'">
+            <label for="sDescription">Description: </label>
+            <textarea class="u-full-width" placeholder="{{ctrl.showPost.description}}" value="{{ctrl.showPost.description}}" ng-model="ctrl.eddescription" id="sDescription"></textarea>
+          </div>
+
+          <div ng-if="ctrl.showPost.type === 'image' || ctrl.type === 'movie'">
+            <label for="description">Description: </label>
+            <textarea class="u-full-width" placeholder="{{ctrl.showPost.description}}" value="{{ctrl.showPost.description}}" ng-model="ctrl.eddescription" id="description" >{{ctrl.showPost.description}}</textarea>
+          </div>
+
+          <div id="" ng-if="ctrl.showPost.type === 'image' || ctrl.type === 'story'">
+            <div id="inWrap">
+              <label for="image">Image: </label>
+              <input type="text" ng-model="ctrl.edimage" placeholder="{{ctrl.showPost.image}}"/>
+            </div>
+          </div>
+          <div id="" ng-if="ctrl.showPost.type === 'movie'">
+            <div id="inWrap">
+              <label for="movie">Movie: </label>
+              <input type="movie" ng-model="ctrl.edmovie" placeholder="{{ctrl.showPost.movie}}"/>
+            </div>
+          </div>
+          <input type="submit" value="Edit Post"/>
+          <a href="#" ng-click="ctrl.editFormToShow = false">Cancel</a>
+          </form>
+    </div>
+  </div>
+
+    <!-- Create Post -->
+    <div class="modal" ng-class="(ctrl.showPostForm === true ? 'post' : '' )">
+      <h2> Add New Post </h2>
+      <form ng-submit="ctrl.createPost(ctrl.loggedInId)">
+        <div id="overWrap">
+          <label for="type">Type of Post: </label>
+            <select id="type" name="type" ng-model="ctrl.type">
+              <option value="story">Story</option>
+              <option value="image">Picture</option>
+              <option value="movie">Movie</option>
+            </select>
+            <!-- {{ ctrl.type }} -->
+        <div id="inWrap">
+          <label for="title">Title: </label>
+          <input type="title" ng-model="ctrl.title" placeholder="Post Title"/>
+        </div>
+        <label for="species">Animal: </label>
+          <select id="species" name="species" ng-model="ctrl.species">
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Bird">Bird</option>
+            <option value="Fish">Fish</option>
+            <option value="Other">Other</option>
+          </select>
+          <div ng-if="ctrl.type === 'story'">
+            <label for="sDescription">Description: </label>
+            <textarea class="u-full-width" placeholder="Write your story here:" ng-model="ctrl.description" id="sDescription"></textarea>
+          </div>
+
+          <div ng-if="ctrl.type === 'image' || ctrl.type === 'movie'">
+            <label for="description">Description: </label>
+            <textarea class="u-full-width" placeholder="Details/Comments" ng-model="ctrl.description" id="description"></textarea>
+          </div>
+
+          <div id="" ng-if="ctrl.type === 'image' || ctrl.type === 'story'">
+            <div id="inWrap">
+              <label for="image">Image: </label>
+              <input type="text" ng-model="ctrl.image" placeholder="Image url"/>
+            </div>
+          </div>
+          <div id="" ng-if="ctrl.type === 'movie'">
+            <div id="inWrap">
+              <label for="movie">Movie: </label>
+              <input type="movie" ng-model="ctrl.movie" placeholder="Movie url"/>
+            </div>
+          </div>
+          <input type="submit" value="Add Post"/>
+          <a href="#" ng-click="ctrl.showPostForm = false">Cancel</a>
+      </form>
+    </div>
+    </div>
+    </div>
 
     </body>
+
+
 </html>

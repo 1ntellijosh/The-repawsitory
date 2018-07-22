@@ -1,7 +1,30 @@
+<!-- div to show the featured post that is clicked on -->
+<div id="postHolder" ng-if="ctrl.showPost != null && ctrl.loggedInId">
+  <!-- div that shows post clicked on -->
+  <div id="showPost">
+    Type: {{ctrl.showPost.type}}<br />
+    Title: {{ctrl.showPost.title}}<br />
+    Species: {{ctrl.showPost.species}}<br />
+    Description: <p>
+      {{ctrl.showPost.description}}
+    </p><br />
+    <div id="movie" ng-if="ctrl.showPost.movie">
+
+    <iframe width="100%" ng-src="{{getIframeSrc(ctrl.showPost.movie)}}" frameborder="0 " allowfullscreen></iframe>
+
+    </div><br />
+    <div id="movie" ng-if="ctrl.showPost.image">
+    <img ng-src="{{ctrl.showPost.image}}" alt=""></div><br />
+    Likes: {{ctrl.showPost.likes}}<br />
+    <a href="#" ng-click="ctrl.editFormSet()">Edit Post</a>
+  </div>
+
+</div>
+
 <!-- index to show all posts after member log in -->
 <ul >
-  <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = post.movie;">
-        {{post.title}}  {{post.likes}}
+  <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = ctrl.post.movie;">
+        <a href="#" ng-click="ctrl.getPost(post)">{{post.title}}</a>  {{post.likes}}
 
   <div id="image" ng-if="post.image">
     <img ng-src="{{post.image}}" alt="">
@@ -23,20 +46,41 @@
 <!-- index before login -->
 <div ng-if="!ctrl.loggedInId">
       <div ng-repeat="post in ctrl.randPost = (ctrl.posts|orderBy:ctrl.randomize).slice(0, 1)">
-               <article>
-                 <h3>{{post.title}}
-               <div id="image" ng-if="post.image" >
-                 <img ng-src="{{post.image}}" alt="">
-               </div>
-               <div id="movie" ng-if="post.movie">
-                 <iframe src="{{post.movie}}" width="" height=""></iframe>
-               </div>
-               <div id="story" ng-if="post.description">
-                 <p>{{post.description}}</p>
-               </div>
+         <article id="featuredPost">
+          <div id="featureLeft">
+            <div id="bulletL">
+              <img  src="../images/paw large.png" /> Featured Post:
+            </div>
+            <div id="featuredImage" ng-if="post.image">
+              <img ng-src="{{post.image}}" alt="">
+            </div>
+            <div id="movie" ng-if="post.movie">
+              <iframe src="{{post.movie}}" width="" height="" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div id="featureRight">
+            <div id="rightHolder">
+              <h3 id="title">{{post.title}}</h3>
+              <p id="from">
+                From: {{post.user[0].username}}
+              </p>
+              <div id="story" ng-if="post.description">
+                <p>{{post.description}}</p>
+              </div>
+              <div id="Like">
+                <p>
+                  <a href="#" ng-click="">
+                    <img  src="../images/thumbs up.png" /></a>
+                  <span id="likeCount">{{post.likes}}</span>
+                </p>
+              </div>
+              <div>
+                <h5>Please Log In/Register To View More Posts Like This</h5>
+              </div>
+            </div>
+          </div>
 
-
-             </article>
-             </div>
-           </div>
+       </article>
+       </div>
+     </div>
  <!-- end of index before login -->
