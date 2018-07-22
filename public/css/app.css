@@ -118,6 +118,10 @@ a:hover {
   background: linear-gradient(to bottom, #212121 0%,#333333 2%,#424242 4%,#4c4c4c 6%,#4c4c4c 6%,#5b5b5b 8%,#757575 11%,#878787 13%,#999999 15%,#aaaaaa 17%,#bababa 19%,#d1d1d1 22%,#dddddd 24%,#e5e5e5 26%,#ededed 28%,#efefef 29%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#efefef',GradientType=0 );
   min-height: 500px;
+<<<<<<< HEAD
+=======
+  padding-bottom: 100px;
+>>>>>>> 29bc269dd47575f4fa90cc867cf00ef2f686103c
 }
 #content {
   width: 75%;
@@ -180,6 +184,18 @@ box-shadow:
   display: flex;
   align-items: center;
 }
+<<<<<<< HEAD
+=======
+#featuredSPost {
+  width: 93%;
+  margin: 0px auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border:1px solid black;
+}
+>>>>>>> 29bc269dd47575f4fa90cc867cf00ef2f686103c
 form a {
   color: black;
 }
