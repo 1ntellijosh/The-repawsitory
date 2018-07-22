@@ -15,11 +15,18 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   const controller = this;
   this.loggedInId = null;
   this.showPost = null;
-  this.editForm = false;
+  controller.editFormToShow = false;
+  controller.showPostForm = false;
+  controller.logForm = false;
+  controller.regForm = false;
 
   $scope.getIframeSrc = function(src) {
     return  src;
   };
+
+  this.setReg = function() {
+    controller.regForm = true;
+  }
 
   this.createUser = function(){
     $http({
@@ -31,10 +38,14 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
         }
     }).then(function(response){
         console.log(response);
-        controller.includePath = '../partials/main.html';
+        controller.regForm = false;
     }, function(){
         console.log('error');
     });
+  }
+
+  this.openLogIn = function() {
+    controller.logForm = true;
   }
 
   this.logIn = function(){
@@ -61,7 +72,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }).then(function(response){
         controller.loggedInId = response.data._id;
         console.log(controller.loggedInId);
-        controller.includePath = '../partials/main.html';
+        controller.logForm = false;
     }, function(){
         console.log('error');
     });
@@ -96,8 +107,11 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }
   }
 
-  this.createPost = function(id){
+  this.setPostForm = function() {
+    controller.showPostForm = true;
+  }
 
+  this.createPost = function(id){
     if (this.movie) {
       this.movie = getId(this.movie);
       console.log(this.movie);
@@ -114,12 +128,13 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
        description: this.description,
        image: this.image,
        movie: this.movie,
+       likes: 0,
        user: id
      }
    }).then(function(response){
      console.log(response);
      controller.getPosts();
-     controller.includePath = '../partials/main.html';
+     controller.showPostForm = false;
    })
  }
 
@@ -128,8 +143,8 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
    console.log(controller.showPost);
  }
 
- this.getEditForm = function() {
-   controller.editForm = true;
+ this.editFormSet = function() {
+   controller.editFormToShow = true;
  }
 
  this.editPost = function(post){
@@ -155,7 +170,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }).then(function(response){
     console.log(response);
     controller.getPosts();
-    controller.editForm = false;
+    controller.editFormToShow = false;
   })
  }
 
