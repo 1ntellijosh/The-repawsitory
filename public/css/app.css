@@ -2,6 +2,8 @@
 body {
   font-family: 'Playfair Display', serif;
   margin-top: 2px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 /* header */
 #header {
@@ -115,6 +117,9 @@ a:hover {
   background: rgb(239 239 239);
   margin: 0 auto;
 }
+#content a {
+  color:black;
+}
 /* index Before login */
 #featuredPost {
   width: 87%;
@@ -165,4 +170,61 @@ box-shadow:
 #featureRight {
   display: flex;
   align-items: center;
+}
+form a {
+  color: black;
+}
+.modal {
+  background: white;
+  position: fixed;
+  margin: 0 25%;
+  padding-top: 3em;
+  top: 3em;
+  left: 0;
+  height: 400px;
+  width: 50%;
+  z-index: 2;
+  overflow: auto;
+  display : none;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 10px;
+  -moz-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+-webkit-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+  border-radius: 3px;
+}
+.logMod {
+  background: white;
+  position: fixed;
+  margin: 0 37.5%;
+  top: 300px;
+  left: 0;
+  height: 175px;
+  width: 25%;
+  z-index: 2;
+  overflow: auto;
+  display : none;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 10px;
+  -moz-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+-webkit-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+  border-radius: 3px;
+}
+.edit {
+  display: block;
+}
+.post {
+  display: block;
+}
+.log {
+  display: block;
 }

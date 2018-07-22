@@ -1,5 +1,5 @@
 <!-- div to show the featured post that is clicked on -->
-<div id="postHolder" ng-if="ctrl.showPost != null">
+<div id="postHolder" ng-if="ctrl.showPost != null && ctrl.loggedInId">
   <!-- div that shows post clicked on -->
   <div id="showPost">
     Type: {{ctrl.showPost.type}}<br />
@@ -16,7 +16,7 @@
     <div id="movie" ng-if="ctrl.showPost.image">
     <img ng-src="{{ctrl.showPost.image}}" alt=""></div><br />
     Likes: {{ctrl.showPost.likes}}<br />
-    <a href="#" ng-click="ctrl.changeInclude('editPost')">Edit Post</a>
+    <a href="#" ng-click="ctrl.editFormSet()">Edit Post</a>
   </div>
 
 </div>
@@ -56,7 +56,7 @@
               <img ng-src="{{post.image}}" alt="">
             </div>
             <div id="movie" ng-if="post.movie">
-              <iframe src="{{post.movie}}" width="" height=""></iframe>
+              <iframe src="{{post.movie}}" width="" height="" allowfullscreen></iframe>
             </div>
           </div>
           <div id="featureRight">
