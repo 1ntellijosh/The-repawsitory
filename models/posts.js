@@ -8,7 +8,8 @@ const postSchema = new Schema({
   description: String,
   image: String,
   movie: String,
-  likes: Number,
+  likes: {type: Number,
+    default: 0},
   user: [{
 
         type: mongoose.Schema.Types.ObjectId,
