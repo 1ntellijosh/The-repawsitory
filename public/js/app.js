@@ -19,6 +19,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   controller.showPostForm = false;
   controller.logForm = false;
   controller.regForm = false;
+  controller.aboutForm = false;
   controller.logUsername = '';
   controller.randPost = {};
 
