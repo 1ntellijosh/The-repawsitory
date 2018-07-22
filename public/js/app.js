@@ -258,21 +258,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     this.changeInclude = (path) => {
     this.includePath = '../partials/'+ path +'.html';
   }
-  // this.dogBreeds = [];
-  // this.breeds = '';
-  //
-  //
-  // this.getDogBreeds = function(){
-  //   $http({
-  //     method:'GET',
-  //     url: 'https://dog.ceo/api/breeds/list/all' + this.breeds
-  //   }).then(response => {
-  //     this.dogBreeds = response.data;
-  //     console.log(response);
-  //   }, error => {
-  //     console.log(error);
-  //   })
-  // }
+
 
 }]);
 
