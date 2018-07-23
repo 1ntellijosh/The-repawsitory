@@ -189,11 +189,21 @@ box-shadow:
   margin: 0px auto;
   padding: 15px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   border:1px solid black;
 }
-
+#featuredSImage {
+  display: inline-block;
+  float: left;
+  height: 125px;
+  margin: 13px;
+}
+#story {
+  max-height: 350px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+}
 form a {
   color: black;
 }
