@@ -158,7 +158,8 @@ box-shadow:
 }
 #bulletL img {
   height: 15px;
-  margin-bottom: 1px
+  margin-bottom: 1px;
+  display: inline-block;
 }
 #Like {
   /* font-size: 1.6em;
@@ -199,10 +200,14 @@ box-shadow:
   margin: 13px;
 }
 #story {
-  max-height: 350px;
+  max-height: 300px;
   overflow: scroll;
   display: flex;
   flex-direction: row;
+}
+/* show post after login */
+#postHolder {
+  padding-top: 15px;
 }
 form a {
   color: black;
@@ -290,7 +295,7 @@ footer img {
   justify-content: center;
   width:250px;
   margin: 0 auto;
-  height: 50px;
+  height: 60px;
   font-size: .75em;
   text-align: center;
 }

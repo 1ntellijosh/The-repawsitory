@@ -263,7 +263,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
           post._id === id)
           this.posts.splice(removeByIndex, 1)
           console.log(response + 'this is the delete route');
-
+          controller.showPost = null;
       }, error =>{
         console.log(error);
       })
