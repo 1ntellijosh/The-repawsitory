@@ -93,6 +93,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }).then(function(response){
         console.log(response);
         controller.loggedInId = null;
+        controller.showPost = null;
     }, function(){
         console.log('error');
     });
