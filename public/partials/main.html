@@ -64,7 +64,7 @@
               <p id="from">
                 From: {{ctrl.randPost.user[0].username}}
               </p>
-              <div id="story" ng-if="ctrl.randPost.description">
+              <div id="desc" ng-if="ctrl.randPost.description">
                 <p>{{ctrl.randPost.description}}</p>
               </div>
               <div id="Like">
@@ -90,9 +90,6 @@
              <div id="bulletL">
                <img  src="../images/paw large.png" /> Featured Post:
              </div>
-             <div id="featuredImage" ng-if="ctrl.randPost.image">
-               <img ng-src="{{ctrl.randPost.image}}" alt="">
-             </div>
            </div>
            <div id="featureRight">
              <div id="rightHolder">
@@ -101,7 +98,9 @@
                  From: {{ctrl.randPost.user[0].username}}
                </p>
                <div id="story" ng-if="ctrl.randPost.description">
-                 <p>{{ctrl.randPost.description}}</p>
+                 <p>
+                   <img id="featuredSImage" ng-if="ctrl.randPost.image" ng-src="{{ctrl.randPost.image}}" alt="">
+{{ctrl.randPost.description}}</p>
                </div>
                <div id="Like">
                  <p>
