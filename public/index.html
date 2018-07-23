@@ -6,6 +6,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
         <script src="/js/app.js" charset="utf-8"></script>
         <link rel="stylesheet" href="/css/app.css">
+        <link rel="icon" href="images/paw large.png" type="image/x-icon"/>
     </head>
     <body ng-controller="MyController as ctrl">
     <div id="container">
@@ -13,7 +14,7 @@
       <div id="headLinkHolder">
 
         <div id="headRight">
-        
+
           <a href="#" ng-click="ctrl.changeInclude('main')">Home</a>
           <a href="#"  ng-click="ctrl.changeInclude('makepost')">About</a>
           <a href="#" ng-click="ctrl.changeInclude('links')">Links</a>
@@ -212,13 +213,5 @@
     </div>
 
     </body>
-    <!-- <div ng-controller="petfinderController as aCtrl">
 
-  <form ng-submit="aCtrl.getAnimals()">
-    <input type="text" placeholder="animal" ng-model="aCtrl.animalType">
-    <input type="text" placeholder="location" ng-model="aCtrl.location">
-    <button type="submit">Submit</button>
-  </form>
-  {{ aCtrl.animals.petfinder.pets.pet[0].description['$t'] }}
-</div> -->
 </html>
