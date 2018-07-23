@@ -80,9 +80,9 @@
     <h2 id="formH">Log In</h2>
         <form ng-submit="ctrl.logIn()">
           <label for="userLog">Username: </label>
-          <input id="userLog" type="text" ng-model="ctrl.logUsername" /><br />
+          <input id="userLog" type="text" ng-model="ctrl.logUsername" required/><br />
           <label for="passLog">Password:&nbsp;</label>
-          <input id="passLog" type="password" ng-model="ctrl.logPassword" /><br />
+          <input id="passLog" type="password" ng-model="ctrl.logPassword" required/><br />
           <div id="buttonPad">
             <input type="submit" value="Log In">
             <a href="#" ng-click="ctrl.logForm = false">Cancel</a>
@@ -95,9 +95,9 @@
     <h2 id="formH">Create User</h2>
       <form ng-submit="ctrl.createUser()">
         <label for="userReg">Username: </label>
-        <input id="userReg" type="text" ng-model="ctrl.username" />
+        <input id="userReg" type="text" ng-model="ctrl.username" required/>
         <label for="passReg">Password:&nbsp;</label>
-        <input id="passReg" type="password" ng-model="ctrl.password" />
+        <input id="passReg" type="password" ng-model="ctrl.password" required/>
         <div id="buttonPad">
         <input type="submit" value="Create User">
         <a href="#" ng-click="ctrl.regForm = false">Cancel</a>

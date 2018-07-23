@@ -193,7 +193,7 @@ box-shadow:
   margin: 0px auto;
   padding: 15px;
   margin-top: 15px;
-  padding-bottom: 0px;
+  padding-bottom: 15px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -204,6 +204,9 @@ box-shadow:
   float: left;
   height: 125px;
   margin: 13px;
+}
+#sTitle {
+  margin-top: 0px;
 }
 #story {
   max-height: 250px;

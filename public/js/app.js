@@ -118,7 +118,12 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }
 
   this.setPostForm = function() {
-    controller.showPostForm = true;
+    if(controller.loggedInId){
+      controller.showPostForm = true;
+    }
+    else {
+      controller.logForm = true;
+    }
   }
 
   this.createPost = function(id){
