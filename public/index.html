@@ -4,8 +4,13 @@
         <meta charset="utf-8" >
         <title>The Re•PAWS•itory</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
         <script src="/js/app.js" charset="utf-8"></script>
         <link rel="stylesheet" href="/css/app.css">
+        <link rel="icon" href="images/paw large.png" type="image/x-icon"/>
     </head>
     <body ng-controller="MyController as ctrl">
     <div id="container">
@@ -14,15 +19,15 @@
 
         <div id="headRight">
 
-          <a href="#" ng-click="ctrl.changeInclude('main')">Home</a>
-          <a href="#"  ng-click="ctrl.changeInclude('makepost')">About</a>
+          <a href="#" ng-click="ctrl.goHome()">Home</a>
+          <a href="#"  ng-click="ctrl.setAbout()">About</a>
           <a href="#" ng-click="ctrl.changeInclude('links')">Links</a>
-          <a href="#" ng-click="ctrl.changeInclude('petfinder')">Adopt An Animal</a>
+          <a href="#" ng-click="ctrl.setAdopt()">Adopt An Animal</a>
         </div>
       </div>
     </div>
     <div id="bannerOverlay" >
-      
+
 
       <div id="banner">
         <img id="banImg" src="../images/animals.png" />
@@ -43,12 +48,45 @@
     </div>
 
     <div id="waterFall">
-      <div id="content"
+      <div ng-if="ctrl.adoptForm === false" class="content"
         ng-include="ctrl.includePath">
+      </div>
+      <div class="content" ng-show="ctrl.adoptForm === true">
+        <div id="adoptDiv">
+          <h1>Welcome to PetFinder</h1>
+          <img src="/images/petfinder-logo-web_1.png" alt="pet finder logo">
+          <form >
+              <legend> Adopt a Pet </legend>
+              <label for="aspecies">Pet Species</label>
+              <input type="text" name="aspecies" placeholder="Pet Type IE 'dog', 'cat', etc."id="aspecies">
+              <label for="zip">Zip</label>
+              <input type="number" name="zip" placeholder="Your Zip"id="zip">
+              <input type="submit" id="submitAQuery">
+          </form>
+          <div id="adoptResults">
+            <!-- pet adoption lest will populate here -->
+          </div>
+          <hr>
+          <h3>Adopt or Donate</h3>
+          <div id="adoptLinks">
+            <a href="https://bestfriends.org/">
+            <img ng-src="https://cdn.bestfriends.org/s3fs-public/bfas.png" alt="best friends logo">
+            </a>
+            <hr>
+            <a href="http://www.humanesociety.org/">
+            <img ng-src="http://www.humanesociety.org/assets/images/global/logo.png" alt="humane society logo">
+            </a>
+            <hr>
+            <a href="https://www.adoptapet.com/">
+              <h3>Find a shelter near you</h3>
+              <img ng-src="https://images-ra.adoptapet.com/images/adoptapetlogo2017.svg" alt="adopt a pet logo">
+            </a>
+          </div>
+        </div>
       </div>
     </div>
       <!-- index to show all posts after member log in -->
-      <div id="rollout" ng-if="ctrl.loggedInId">
+      <div id="rollout" ng-if="ctrl.loggedInId && ctrl.adoptForm === false">
           <div id="sumDiv" ng-repeat="post in ctrl.posts" ng-init="i = ctrl.post.movie;">
             <a href="#" ng-click="ctrl.getPost(post)">
               <h3 id="rollPostTitle">{{post.title}}</h3>
@@ -69,6 +107,7 @@
         </div></a>
       </div>
     </div>
+
     <footer>
       <img src="/images/beagle look up.png" />
       <div id="footBlack">
@@ -130,7 +169,7 @@
             <textarea class="u-full-width" placeholder="{{ctrl.showPost.description}}" value="{{ctrl.showPost.description}}" ng-model="ctrl.eddescription" id="sDescription"></textarea>
           </div>
 
-          <div ng-if="ctrl.showPost.type === 'image' || ctrl.type === 'movie'">
+          <div>
             <label for="description">Description: </label>
             <textarea class="u-full-width" placeholder="{{ctrl.showPost.description}}" value="{{ctrl.showPost.description}}" ng-model="ctrl.eddescription" id="description" >{{ctrl.showPost.description}}</textarea>
           </div>
@@ -208,18 +247,21 @@
           </div>
       </form>
 
-
-    </div>
     </div>
 
+    <!-- about modal -->
+    <div class="modal" ng-class="(ctrl.aboutForm === true ? 'about' : '' )">
+
+      <div id="aboutAll">
+        <div id="aboutTop">
+          <p id="aboutHeader">About The Repawsitory </p>
+        </div>
+        <p>
+   			Cat ipsum dolor sit amet, hiss at vacuum cleaner but wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again i'm going to lap some water out of my master's cup meow for sniff other cat's butt and hang jaw half open thereafter. Catasstrophe slap owner's face at 5am until human fills food dish howl  uncontrollably for no reason purrrrrr for immediately regret falling into bathtub meowing chowing and wowing. <br> All of a sudden cat goes crazy burrow under covers pretend you want to go out but then don't but my left donut is missing, as is my right. Licks paws jump around on couch, meow constantly until given food, love you, then bite you or pelt around the house and up and down. </p>
+        <a href="#" id="close" ng-click="ctrl.aboutForm = false">X</a>
+      </div>
+      </div>
     </body>
-    <!-- <div ng-controller="petfinderController as aCtrl">
-
-  <form ng-submit="aCtrl.getAnimals()">
-    <input type="text" placeholder="animal" ng-model="aCtrl.animalType">
-    <input type="text" placeholder="location" ng-model="aCtrl.location">
-    <button type="submit">Submit</button>
-  </form>
-  {{ aCtrl.animals.petfinder.pets.pet[0].description['$t'] }}
-</div> -->
+    <!-- adoption api petfinder.js link-->
+    <script src="js/petfinder.js" charset="utf-8"></script>
 </html>
