@@ -24,7 +24,7 @@
 <!-- index to show all posts after member log in -->
 <ul >
   <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = ctrl.post.movie;">
-        <a href="#" ng-click="ctrl.getPost(post)">{{post.title}}</a>  {{post.likes}}
+        <a href="#" ng-click="ctrl.getPost(post)">{{post.title}}</a>   <span ng-click= "ctrl.updateLikes(post)" id="likeCount"><img src="../images/thumbs up.png" height="10px" width="10px"> {{post.likes}}</span>
 
   <div id="image" ng-if="post.image">
     <img ng-src="{{post.image}}" alt="">
