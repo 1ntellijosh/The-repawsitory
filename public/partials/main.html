@@ -1,47 +1,81 @@
 <!-- div to show the featured post that is clicked on -->
 <div id="postHolder" ng-if="ctrl.showPost != null && ctrl.loggedInId">
   <!-- div that shows post clicked on -->
-  <div id="showPost">
-    Type: {{ctrl.showPost.type}}<br />
-    Title: {{ctrl.showPost.title}}<br />
-    Species: {{ctrl.showPost.species}}<br />
-    Description: <p>
-      {{ctrl.showPost.description}}
-    </p><br />
-    <div id="movie" ng-if="ctrl.showPost.movie">
+  <div ng-if="ctrl.showPost.type === 'image' || ctrl.showPost.type === 'movie'">
+     <article id="featuredPost">
+      <div id="featureLeft">
+        <div id="bulletL">
+          <img  src="../images/paw large.png" />  {{ctrl.showPost.title}}
+        </div>
+        <div id="featuredImage" ng-if="ctrl.showPost.image">
+          <img ng-src="{{ctrl.showPost.image}}" alt="">
+        </div>
+        <div id="featuredMovie" ng-if="ctrl.showPost.movie">
+          <iframe src="{{ctrl.showPost.movie}}" width="" height="" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div id="featureRight">
+        <div id="rightHolder">
+          <p id="from">
+            From: {{ctrl.showPost.user[0].username}}
+          </p>
+          <div id="desc" ng-if="ctrl.showPost.description">
+            <p>{{ctrl.showPost.description}}</p>
+          </div>
+          <div id="Like">
+            <p>
+              <a href="#" ng-click="ctrl.updateLikes(ctrl.showPost)">
+                <img  src="../images/thumbs up.png" /></a>
+              <span id="likeCount"> - {{ctrl.showPost.likes}}</span>
+            </p>
+          </div>
+            <a href="#" ng-click="ctrl.editFormSet()">Edit Post</a>
+            <div ng-if="ctrl.loggedInId" ng-click="ctrl.deletePost(ctrl.showPost._id)">Delete</div>
+          </div>
+          <div>
+          </div>
+        </div>
+      </div>
 
-    <iframe width="100%" ng-src="{{getIframeSrc(ctrl.showPost.movie)}}" frameborder="0 " allowfullscreen></iframe>
+   </article>
+   </div>
+   <!-- working on this -->
+   <!-- feature post if it is a story -->
+   <div ng-if="ctrl.showPost.type === 'story'">
+      <article id="featuredSPost">
+       <div id="featureLeft">
+         <div id="bulletL">
+           <img  src="../images/paw large.png" /> {{ctrl.showPost.title}}
+         </div>
+       </div>
+       <div id="featureRight">
+         <div id="rightHolder">
+           <p id="from">
+             From: {{ctrl.showPost.user[0].username}}
+           </p>
+           <div id="story" ng-if="ctrl.showPost.description">
+             <p>
+               <img id="featuredSImage" ng-if="ctrl.showPost.image" ng-src="{{ctrl.showPost.image}}" alt="">
+{{ctrl.showPost.description}}</p>
+           </div>
+           <div id="Like">
+             <p>
+               <a href="#" ng-click="ctrl.updateLikes(ctrl.showPost)">
+                 <img  src="../images/thumbs up.png" /></a>
+               <span id="likeCount"> - {{ctrl.showPost.likes}}</span>
+             </p>
+           </div>
+           <div>
+             <a href="#" ng-click="ctrl.editFormSet()">Edit Post</a>
+             <div ng-if="ctrl.loggedInId" ng-click="ctrl.deletePost(ctrl.showPost._id)">Delete</div>
+             </div>
+           </div>
+         </div>
+       </div>
 
-    </div><br />
-    <div id="movie" ng-if="ctrl.showPost.image">
-    <img ng-src="{{ctrl.showPost.image}}" alt=""></div><br />
-    <span>Likes: {{ctrl.showPost.likes}}</span><br />
-    <a href="#" ng-click="ctrl.editFormSet()">Edit Post</a>
-  </div>
-
+    </article>
+    </div>
 </div>
-
-<!-- index to show all posts after member log in -->
-<ul >
-  <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = ctrl.post.movie;">
-        <a href="#" ng-click="ctrl.getPost(post)">{{post.title}}</a>  <span ng-click= "ctrl.updateLikes(post)" id="likeCount"><img src="../images/thumbs up.png" height="10px" width="10px"> {{post.likes}}</span>
-
-  <div id="image" ng-if="post.image">
-    <img ng-src="{{post.image}}" alt="">
-  </div>
-  <div id="movie" ng-if="post.movie">
-
-  <iframe width="100%" ng-src="{{getIframeSrc(post.movie)}}" frameborder="0 " allowfullscreen></iframe>
-
-  </div>
-  <div id="story" ng-if="post.description">
-    <p>
-      {{post.description}}
-    </p>
-<div ng-if="ctrl.loggedInId" ng-click="ctrl.deletePost(post._id)">Delete</div>
-  </div>
-  </li>
-</ul>
 
 <!-- index before login -->
 <div ng-if="!ctrl.loggedInId">
@@ -64,7 +98,7 @@
               <p id="from">
                 From: {{ctrl.randPost.user[0].username}}
               </p>
-              <div id="story" ng-if="ctrl.randPost.description">
+              <div id="desc" ng-if="ctrl.randPost.description">
                 <p>{{ctrl.randPost.description}}</p>
               </div>
               <div id="Like">
@@ -85,23 +119,22 @@
        <!-- working on this -->
        <!-- feature post if it is a story -->
        <div ng-if="ctrl.randPost.type === 'story'">
-          <article id="featuredPost">
+          <article id="featuredSPost">
            <div id="featureLeft">
              <div id="bulletL">
                <img  src="../images/paw large.png" /> Featured Post:
              </div>
-             <div id="featuredImage" ng-if="ctrl.randPost.image">
-               <img ng-src="{{ctrl.randPost.image}}" alt="">
-             </div>
            </div>
            <div id="featureRight">
              <div id="rightHolder">
-               <h3 id="title">{{ctrl.randPost.title}}</h3>
+               <h3 id="sTitle">{{ctrl.randPost.title}}</h3>
                <p id="from">
                  From: {{ctrl.randPost.user[0].username}}
                </p>
                <div id="story" ng-if="ctrl.randPost.description">
-                 <p>{{ctrl.randPost.description}}</p>
+                 <p>
+                   <img id="featuredSImage" ng-if="ctrl.randPost.image" ng-src="{{ctrl.randPost.image}}" alt="">
+{{ctrl.randPost.description}}</p>
                </div>
                <div id="Like">
                  <p>
