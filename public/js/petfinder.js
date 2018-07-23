@@ -11,7 +11,7 @@ function bindButtons(){
 		event.preventDefault();
 		var zip = document.getElementById('zip').value; // this line gets the zip code from the form entry
     var spec = document.getElementById('aspecies').value; // this line gets the zip code from the form entry
-		var url = 'http://api.petfinder.com/pet.find';
+		var url = 'https://api.petfinder.com/pet.find';
 
 		// Within $.ajax{...} is where we fill out our query
 		$.ajax({
@@ -28,8 +28,16 @@ function bindButtons(){
 			// Here is where we handle the response we got back from Petfinder
 			success: function( response ) {
 				console.log(response); // debugging
+
 				var petName = response.petfinder.pets.pet[0].name['$t'];
-				var img = response.petfinder.pets.pet[0].media.photos.photo[0].$t;
+
+				var img = null
+				if (response.petfinder.pets.pet[0].media.photos !==undefined){
+					img=response.petfinder.pets.pet[0].media.photos.photo[0].$t
+				}else{
+					img= ""
+				}
+
 				var id = response.petfinder.pets.pet[0].id.$t;
 
 				var newName = document.createElement('a');
