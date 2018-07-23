@@ -449,23 +449,12 @@ box-shadow:
   border-radius: 3px;
 }
 
-#linkImageChewy {
-  height: 275px;
+#shelterLink {
+  height: 150px;
   margin-top: 15px;
-  margin-right: 8px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   border:1px solid black;
-  border-radius: 10px;
-  -moz-box-shadow:
-  4px 5px 10px rgba(000,000,000,0.8);
--webkit-box-shadow:
-  4px 5px 10px rgba(000,000,000,0.8);
-box-shadow:
-  4px 5px 10px rgba(000,000,000,0.8);
-  border-radius: 3px;
-}
-
-#shopLinks {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 1.5em;
-  padding-left: 5px;
 }
