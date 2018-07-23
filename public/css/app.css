@@ -411,3 +411,13 @@ footer img {
   border:1px solid black;
   height: 200px;
 }
+
+#shelterLink {
+  height: 150px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border:1px solid black;
+}
