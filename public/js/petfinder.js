@@ -1,3 +1,5 @@
+console.log('called');
+
 var apiKey = '40cd84ccc829ff498eef92970e909146'; // assign our key to a variable, easier to read
 
 // the next line and function set up the button in our html to be clickable and reactive
@@ -5,11 +7,11 @@ document.addEventListener('DOMContentLoaded', bindButtons);
 
 function bindButtons(){
 	document.getElementById('submitAQuery').addEventListener('click', function(event){
+    console.log('called');
 		event.preventDefault();
 		var zip = document.getElementById('zip').value; // this line gets the zip code from the form entry
     var spec = document.getElementById('aspecies').value; // this line gets the zip code from the form entry
 		var url = 'http://api.petfinder.com/pet.find';
-		console.log(url);
 
 		// Within $.ajax{...} is where we fill out our query
 		$.ajax({
@@ -40,7 +42,8 @@ function bindButtons(){
 
 				var list = document.createElement("div");
 				list.setAttribute("id", "List");
-				document.body.appendChild(list);
+				var listDiv = document.getElementById("adoptResults");
+				listDiv.appendChild(list);
 
 				newDiv.appendChild(newName);
 				list.appendChild(newDiv);

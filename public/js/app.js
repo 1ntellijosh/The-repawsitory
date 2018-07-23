@@ -27,6 +27,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   controller.aboutForm = false;
   controller.logUsername = '';
   controller.randPost = {};
+  controller.adoptForm = false;
 
   $scope.getIframeSrc = function(src) {
     return  src;
@@ -193,6 +194,19 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
  this.setAbout = function() {
    controller.aboutForm = true;
  }
+
+ this.setAdopt = function() {
+   controller.adoptForm = true;
+ }
+
+ this.goHome = function() {
+   controller.editFormToShow = false;
+   controller.showPostForm = false;
+   controller.logForm = false;
+   controller.regForm = false;
+   controller.adoptForm = false;
+ }
+
  this.updateLikes = post =>{
 
      post.likes++
