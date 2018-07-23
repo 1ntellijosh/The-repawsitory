@@ -136,7 +136,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
        description: this.description,
        image: this.image,
        movie: this.movie,
-       likes: 0,
+       likes: this.likes,
        user: id
      }
    }).then(function(response){
@@ -182,6 +182,20 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   })
  }
 
+
+ this.updateLikes = post =>{
+
+     post.likes++
+     $http({
+       method: 'PUT',
+       url: '/posts/' + post._id,
+       data: {likes: post.likes}
+     }).then(response =>{
+       console.log(response.data.likes)
+     }, error =>{
+       console.log(error.message);
+     })
+   }
   // this.posts = [
   //     {
   //       type: 'image',
@@ -254,6 +268,8 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
       })
     }
 
+
+
     this.getPosts();
     this.randPost= controller.posts[controller.randomize()];
 
@@ -277,7 +293,7 @@ app.controller('petfinderController', ['$http', '$scope','$sce', function($http,
 
     console.log(this.searchURL);
 
-  http://api.petfinder.com/pet.find?format=json&key=40cd84ccc829ff498eef92970e909146&animal=cat&location=74012&output=basic&callback=
+  //http://api.petfinder.com/pet.find?format=json&key=40cd84ccc829ff498eef92970e909146&animal=cat&location=74012&output=basic&callback=
 
 this.animal=[]
 this.animals=[]
