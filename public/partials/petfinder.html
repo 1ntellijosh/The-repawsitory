@@ -1,21 +1,15 @@
 
-
-
-
-
-<!-- or welcome to {{appName}} if set to a variable in app.js  -->
-<h1>Welcome to Petfinder</h1>
-
+<img ng-src="http://www.furgetmenotrescue.org/uploads/6/5/2/3/65231497/published/petfinder-logo-web_1.jpg?1500125596" alt="pet finder logo">
 
 <!-- ng-model set to empty string in app.js -->
-<form ng-submit= "ctrl.getAnimals()">
-  <label for=""></label>
+<!-- <form ng-submit= "ctrl.getAnimals()">
+  <label for=""></label> -->
 
 <!-- ng-model set to empty string in app.js -->
 <h1>Welcome to PetFinder</h1>
-<form ng-submit= "ctrl.getAnimals()">
+<!-- <form ng-submit= "ctrl.getAnimals()"> -->
 
-  <input type="text" placeholder="search animals" ng-model="ctrl.animalType"/>
+  <!-- <input type="text" placeholder="search animals" ng-model="ctrl.animalType"/>
   <button type="submit">Search</button>
 </form>
 <div ng-repeat="animal in ctrl.animals">
@@ -27,30 +21,18 @@
 
     <h3>Type:{{animal.animals}}</h3>
     <h3>Details: {{animal.breed}}</h3>
-</div>
+</div> -->
 
-<h3>Adopt or Donate</h3>
-<a href="https://bestfriends.org/">
-<img ng-src="https://cdn.bestfriends.org/s3fs-public/bfas.png" alt="best friends logo">
-</a>
 
-<a href="http://www.humanesociety.org/">
-<img ng-src="http://www.humanesociety.org/assets/images/global/logo.png" alt="humane society logo">
-</a>
 
-<a href="https://www.adoptapet.com/">
-  <p>Find your local shelter</p>
-  <img ng-src="https://images-ra.adoptapet.com/images/adoptapetlogo2017.svg" alt="adopt a pet logo">
-</a>
-
-  <input type="text" placeholder="search animals" ng-model="ctrl.animalType"/>
+  <!-- <input type="text" placeholder="search animals" ng-model="ctrl.animalType"/>
   <button type="submit">Search</button>
-</form>
-<div ng-repeat="animals in ctrl.animals">
+</form> -->
+<!-- <div ng-repeat="animals in ctrl.animals">
     <img src="https://www.petfinder.com/common/images/design/mastheads/no_logos_tophat-3-2010.png" alt="petfinder logo">
     <h3>Type:{{animal.animal}}</h3>
     <h3>Details: {{animal.animalDetails}}</h3>
-</div>
+</div> -->
 
 <form>
     <legend> Adopt a Pet </legend>
@@ -60,6 +42,20 @@
     <input type="number" name="zip" placeholder="Your Zip"id="zip">
     <input type="submit" id="submitAQuery">
 </form>
+<hr>
+<h3>Adopt or Donate</h3>
+<a href="https://bestfriends.org/">
+<img ng-src="https://cdn.bestfriends.org/s3fs-public/bfas.png" alt="best friends logo">
+</a>
+<hr>
+<a href="http://www.humanesociety.org/">
+<img ng-src="http://www.humanesociety.org/assets/images/global/logo.png" alt="humane society logo">
+</a>
+<hr>
+<a href="https://www.adoptapet.com/">
+  <h3>Find a shelter near you</h3>
+  <img ng-src="https://images-ra.adoptapet.com/images/adoptapetlogo2017.svg" alt="adopt a pet logo">
+</a>
 <script
 src="https://code.jquery.com/jquery-3.3.1.min.js"
 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
