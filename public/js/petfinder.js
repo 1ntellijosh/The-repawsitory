@@ -42,11 +42,22 @@ for(i=0;i<=10;i++){
 				}
 
 				var id = response.petfinder.pets.pet[i].id.$t;
+				var description= response.petfinder.pets.pet[i].description.$t;
+				var sex= response.petfinder.pets.pet[i].sex.$t;
+				var contact= response.petfinder.pets.pet[i].contact.email.$t;
 
 				var newName = document.createElement('a');
 				var newDiv = document.createElement('div');
 				newName.textContent = petName;
 				newName.href = 'https://www.petfinder.com/petdetail/' + id;
+
+				var newDescription= document.createElement('p');
+				newDescription.textContent = description;
+				var newSex= document.createElement('p');
+				newSex.textContent = sex;
+				var newContact= document.createElement('a');
+				newContact.textContent = contact;
+				newContact.href = "mailto:" + contact
 
 				var newImg = document.createElement('img');
 				newImg.src = img;
@@ -58,7 +69,10 @@ for(i=0;i<=10;i++){
 
 				newDiv.appendChild(newName);
 				list.appendChild(newDiv);
+				list.appendChild(newSex);
 				list.appendChild(newImg);
+				list.appendChild(newDescription);
+				list.appendChild(newContact);
 			}
 		}
 		});
