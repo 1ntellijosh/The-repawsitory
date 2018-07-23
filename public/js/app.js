@@ -7,6 +7,11 @@ $sceDelegateProvider.resourceUrlWhitelist([
 ]);
 });
 
+app.config(function($httpProvider) {
+    //Enable cross domain calls
+    $httpProvider.defaults.useXDomain = true;
+});
+
 app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope, $sce){
   this.posts= []
   this.post= ''
@@ -93,7 +98,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }
 
   this.randomize = function () {
-      return Math.floor(Math.random() * controller.posts.length);
+      return Math.floor(Math.random() * controller.posts.length);
   };
 
   this.getPosts = function(){
@@ -131,7 +136,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
        description: this.description,
        image: this.image,
        movie: this.movie,
-       likes: 0,
+       likes: this.likes,
        user: id
      }
    }).then(function(response){
@@ -177,6 +182,20 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   })
  }
 
+
+ this.updateLikes = post =>{
+
+     post.likes++
+     $http({
+       method: 'PUT',
+       url: '/posts/' + post._id,
+       data: {likes: post.likes}
+     }).then(response =>{
+       console.log(response.data.likes)
+     }, error =>{
+       console.log(error.message);
+     })
+   }
   // this.posts = [
   //     {
   //       type: 'image',
@@ -249,6 +268,8 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
       })
     }
 
+
+
     this.getPosts();
     this.randPost= controller.posts[controller.randomize()];
 
@@ -259,38 +280,39 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }
 }]);
 
-// app.controller('petfinderController', ['$http', function($http){
-//
-//   this.appName ="Movie House"
-//
-//     this.baseURL= 'http://api.petfinder.com/pet.getRandom?'
-//     this.format= 'json'
-//     this.apikey= 'key='+ '40cd84ccc829ff498eef92970e909146'
-//     this.animalType= ''
-//     this.searchURL= this.baseURL + this.format + '&' + this.apikey + "&"
-//     + "&output=basic"
-//
-//     console.log(this.searchURL);
-//
-//     http://api.petfinder.com/pet.getRandom?json&key=40cd84ccc829ff498eef92970e909146&animal=cat&output=basic
-//
-// this.animal=[]
-// this.animals=[]
-// this.animalDetails= []
-//
-// this.getAnimals=()=>{
-//   $http({
-//       method: 'GET',
-//       url:this.searchURL
-//   }).then(response=> {
-//     this.animals = response.data;
-//     console.log(response);
-//
-//   }, error => {
-//     console.log(error)
-//   }).catch(err => console.log('Catch :', err));
-//   }
-//
-//
-//
-// }])
+app.controller('petfinderController', ['$http', '$scope','$sce', function($http, $scope, $sce){
+
+
+    this.baseURL= 'http://api.petfinder.com/pet.find?'
+    this.format= 'format=json'
+    this.apikey= 'key='+ '40cd84ccc829ff498eef92970e909146'
+    this.animalType= 'animal='
+    this.location="location="
+    this.searchURL= this.baseURL + this.format + '&' + this.apikey
+    this.end="&output=basic"
+
+    console.log(this.searchURL);
+
+  //http://api.petfinder.com/pet.find?format=json&key=40cd84ccc829ff498eef92970e909146&animal=cat&location=74012&output=basic&callback=
+
+this.animal=[]
+this.animals=[]
+this.animalDetails= []
+const aControl = this;
+
+this.getAnimals=()=>{
+  $http({
+      method: 'GET',
+      url:this.searchURL+ "&"+ this.animalType + '&'+ this.location + this.end
+  }).then(response=> {
+    aControl.animals = response.data.petfinder.pets.pet;
+    console.log(response);
+
+  }, error => {
+    console.log(error)
+  }).catch(err => console.log('Catch :', err));
+  }
+
+
+
+}])
