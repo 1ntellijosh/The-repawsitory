@@ -66,8 +66,8 @@
              </p>
            </div>
            <div>
-             <a href="#" ng-click="ctrl.editFormSet()">Edit Post</a>
-             <div ng-if="ctrl.loggedInId" ng-click="ctrl.deletePost(ctrl.showPost._id)">Delete</div>
+             <a ng-if="ctrl.loggedInId ===ctrl.showPost.user[0]._id" href="#" ng-click="ctrl.editFormSet()">Edit Post</a>
+             <div ng-if="ctrl.loggedInId ===ctrl.showPost.user[0]._id"  ng-click="ctrl.deletePost(ctrl.showPost._id)">Delete</div>
              </div>
            </div>
          </div>
