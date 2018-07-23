@@ -15,7 +15,7 @@
     </div><br />
     <div id="movie" ng-if="ctrl.showPost.image">
     <img ng-src="{{ctrl.showPost.image}}" alt=""></div><br />
-    <span>Likes: {{ctrl.showPost.likes}}</span><br />
+    Likes: {{ctrl.showPost.likes}}<br />
     <a href="#" ng-click="ctrl.editFormSet()">Edit Post</a>
   </div>
 
@@ -24,7 +24,7 @@
 <!-- index to show all posts after member log in -->
 <ul >
   <li ng-if="ctrl.loggedInId" ng-repeat="post in ctrl.posts" ng-init="i = ctrl.post.movie;">
-        <a href="#" ng-click="ctrl.getPost(post)">{{post.title}}</a>  <span ng-click= "ctrl.updateLikes(post)" id="likeCount"><img src="../images/thumbs up.png" height="10px" width="10px"> {{post.likes}}</span>
+        <a href="#" ng-click="ctrl.getPost(post)">{{post.title}}</a>  {{post.likes}}
 
   <div id="image" ng-if="post.image">
     <img ng-src="{{post.image}}" alt="">
@@ -85,7 +85,7 @@
        <!-- working on this -->
        <!-- feature post if it is a story -->
        <div ng-if="ctrl.randPost.type === 'story'">
-          <article id="featuredPost">
+          <article id="featuredSPost">
            <div id="featureLeft">
              <div id="bulletL">
                <img  src="../images/paw large.png" /> Featured Post:
