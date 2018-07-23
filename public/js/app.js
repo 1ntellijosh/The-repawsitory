@@ -258,7 +258,9 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     this.changeInclude = (path) => {
     this.includePath = '../partials/'+ path +'.html';
   }
-}]);
+
+
+ }]);
 
 // app.controller('petfinderController', ['$http', function($http){
 //
