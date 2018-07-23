@@ -145,7 +145,7 @@ a:hover {
   margin-top: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   border:1px solid black;
 }
 #featuredImage img {
