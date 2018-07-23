@@ -80,6 +80,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
         controller.loggedInId = response.data._id;
         console.log(controller.loggedInId);
         controller.logForm = false;
+        controller.changeInclude('main')
     }, function(){
         console.log('error');
     });
@@ -92,6 +93,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }).then(function(response){
         console.log(response);
         controller.loggedInId = null;
+        controller.showPost = null;
     }, function(){
         console.log('error');
     });
@@ -116,7 +118,12 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   }
 
   this.setPostForm = function() {
-    controller.showPostForm = true;
+    if(controller.loggedInId){
+      controller.showPostForm = true;
+    }
+    else {
+      controller.logForm = true;
+    }
   }
 
   this.createPost = function(id){
@@ -262,7 +269,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
           post._id === id)
           this.posts.splice(removeByIndex, 1)
           console.log(response + 'this is the delete route');
-
+          controller.showPost = null;
       }, error =>{
         console.log(error);
       })
