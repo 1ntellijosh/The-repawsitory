@@ -398,3 +398,16 @@ footer img {
   font-size: .75em;
   text-align: center;
 }
+
+#chewy, #mungo, #barkshop {
+  width: 75%;
+  margin: 0px auto;
+  padding: 15px;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  border:1px solid black;
+  height: 200px;
+}
