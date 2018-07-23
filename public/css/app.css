@@ -248,6 +248,20 @@ box-shadow:
   font-size: 1.5em;
   margin-top: 0px;
 }
+/* forms */
+#formH {
+  margin: 15px;
+  margin-left: 0px;
+}
+#buttonPad {
+  width: 66%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+input {
+  width:63%;
+}
 form a {
   color: black;
 }

@@ -78,12 +78,16 @@
 
     <!-- log in form -->
     <div class="logMod" ng-class="(ctrl.logForm === true ? 'log' : '' )">
-    <h2>Log In</h2>
+    <h2 id="formH">Log In</h2>
         <form ng-submit="ctrl.logIn()">
-          <input type="text" ng-model="ctrl.logUsername" />
-          <input type="password" ng-model="ctrl.logPassword" />
-          <input type="submit" value="Log In">
-          <a href="#" ng-click="ctrl.logForm = false">Cancel</a>
+          <label for="userLog">Username: </label>
+          <input id="userLog" type="text" ng-model="ctrl.logUsername" /><br />
+          <label for="passLog">Password:&nbsp;</label>
+          <input id="passLog" type="password" ng-model="ctrl.logPassword" /><br />
+          <div id="buttonPad">
+            <input type="submit" value="Log In">
+            <a href="#" ng-click="ctrl.logForm = false">Cancel</a>
+          </div>
         </form>
     </div>
 
