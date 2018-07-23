@@ -7,6 +7,11 @@ $sceDelegateProvider.resourceUrlWhitelist([
 ]);
 });
 
+app.config(function($httpProvider) {
+    //Enable cross domain calls
+    $httpProvider.defaults.useXDomain = true;
+});
+
 app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope, $sce){
   this.posts= []
   this.post= ''
@@ -277,13 +282,14 @@ app.controller('petfinderController', ['$http', '$scope','$sce', function($http,
 this.animal=[]
 this.animals=[]
 this.animalDetails= []
+const aControl = this;
 
 this.getAnimals=()=>{
   $http({
       method: 'GET',
       url:this.searchURL+ "&"+ this.animalType + '&'+ this.location + this.end
   }).then(response=> {
-    this.animals = response.data;
+    aControl.animals = response.data.petfinder.pets.pet;
     console.log(response);
 
   }, error => {
