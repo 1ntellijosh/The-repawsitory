@@ -80,6 +80,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
         controller.loggedInId = response.data._id;
         console.log(controller.loggedInId);
         controller.logForm = false;
+        controller.changeInclude('main')
     }, function(){
         console.log('error');
     });
