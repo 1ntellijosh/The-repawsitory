@@ -205,6 +205,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
    controller.logForm = false;
    controller.regForm = false;
    controller.adoptForm = false;
+   controller.changeInclude('main');
  }
 
  this.updateLikes = post =>{
