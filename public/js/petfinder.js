@@ -28,8 +28,16 @@ function bindButtons(){
 			// Here is where we handle the response we got back from Petfinder
 			success: function( response ) {
 				console.log(response); // debugging
+
 				var petName = response.petfinder.pets.pet[0].name['$t'];
-				var img = response.petfinder.pets.pet[0].media.photos.photo[0].$t;
+
+				var img = null
+				if (response.petfinder.pets.pet[0].media.photos !==undefined){
+					img=response.petfinder.pets.pet[0].media.photos.photo[0].$t
+				}else{
+					img= ""
+				}
+
 				var id = response.petfinder.pets.pet[0].id.$t;
 
 				var newName = document.createElement('a');
