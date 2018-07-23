@@ -32,7 +32,7 @@ html, body {
   color: black;
 }
 #headRight {
-  width: 300px;
+  width: 350px;
   height: 40px;
   background-image: url('../images/black marker.png');
   background-size: cover;
@@ -43,7 +43,7 @@ html, body {
 #headRight a {
   margin-right: 15px;
   color: #efefef;
-  font-size: .9em;
+  font-size: .85em;
 }
 a {
   text-decoration: none;
@@ -121,15 +121,21 @@ a:hover {
   padding-bottom: 55px;
 
 }
-#content {
+.content {
   width: 75%;
   background: rgb(239 239 239);
   margin: 0 auto;
-  /* padding-top: 15px;
-  padding-bottom: 35px; */
 }
-#content a {
+.content a {
   color:black;
+}
+/* adopt content */
+#adoptDiv {
+  width:93%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 /* content shown Before and after login */
 #featuredPost {
@@ -139,7 +145,7 @@ a:hover {
   margin-top: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   border:1px solid black;
 }
 #featuredImage img {
@@ -310,6 +316,12 @@ form a {
   height: 200px;
   overflow: scroll;
 }
+#adoptForm {
+  background: #efefef;
+  height: 150px;
+  width: 75%;
+  margin: 0 auto;
+}
 /* modals */
 .modal {
   background: white;
@@ -364,6 +376,25 @@ box-shadow:
 }
 .log {
   display: block;
+}
+.about {
+  display: block;
+}
+#aboutHeader {
+  font-size: 1.5em;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+#close {
+  font-size: 1.6em;
+  font-family: 'Oswald', sans-serif;
+  margin-left: 85%;
+  color: black;
+}
+#aboutAll {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -20px;
 }
 /* footer */
 footer {
