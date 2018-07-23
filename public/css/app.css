@@ -365,6 +365,25 @@ box-shadow:
 .log {
   display: block;
 }
+.about {
+  display: block;
+}
+#aboutHeader {
+  font-size: 1.5em;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+#close {
+  font-size: 1.6em;
+  font-family: 'Oswald', sans-serif;
+  margin-left: 85%;
+  color: black;
+}
+#aboutAll {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -20px;
+}
 /* footer */
 footer {
   /* padding-top:45px; */
