@@ -86,8 +86,8 @@
           <label for="title">Title: </label>
           <input type="title" ng-model="ctrl.edtitle" value="{{ctrl.showPost.title}}" placeholder="{{ctrl.showPost.title}}"/>
         </div>
-        <label for="species">Animal: </label>
-          <select id="species" name="species" ng-model="ctrl.edspecies">
+        <label for="edspecies">Animal: </label>
+          <select id="edspecies" name="species" ng-model="ctrl.edspecies">
             <option value="Cat">Cat</option>
             <option value="Dog">Dog</option>
             <option value="Bird">Bird</option>
@@ -172,6 +172,7 @@
           <a href="#" ng-click="ctrl.showPostForm = false">Cancel</a>
       </form>
     </div>
+
     </div>
     </div>
     <!-- About modal -->
@@ -180,8 +181,14 @@
       <p>
  			Cat ipsum dolor sit amet, hiss at vacuum cleaner but wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again i'm going to lap some water out of my master's cup meow for sniff other cat's butt and hang jaw half open thereafter. Catasstrophe slap owner's face at 5am until human fills food dish howl  uncontrollably for no reason purrrrrr for immediately regret falling into bathtub meowing chowing and wowing. <br> All of a sudden cat goes crazy burrow under covers pretend you want to go out but then don't but my left donut is missing, as is my right. Licks paws jump around on couch, meow constantly until given food, love you, then bite you or pelt around the house and up and down stairs chasing phantoms. Hide when guests come over nap all day stand in front of the computer screen, yet lick butt and make a weird face. Furrier and even more furrier hairball. Lick the other cats sniff catnip and act crazy under the bed. </p>
 
-
     </body>
+    <!-- <div ng-controller="petfinderController as aCtrl">
 
-
+  <form ng-submit="aCtrl.getAnimals()">
+    <input type="text" placeholder="animal" ng-model="aCtrl.animalType">
+    <input type="text" placeholder="location" ng-model="aCtrl.location">
+    <button type="submit">Submit</button>
+  </form>
+  {{ aCtrl.animals.petfinder.pets.pet[0].description['$t'] }}
+</div> -->
 </html>
