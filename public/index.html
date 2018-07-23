@@ -75,7 +75,6 @@
       </div>
     </footer>
 
-
     <!-- log in form -->
     <div class="logMod" ng-class="(ctrl.logForm === true ? 'log' : '' )">
     <h2 id="formH">Log In</h2>
@@ -93,12 +92,16 @@
 
     <!-- Register form -->
     <div class="logMod" ng-class="(ctrl.regForm === true ? 'log' : '' )">
-    <h2>Create User</h2>
+    <h2 id="formH">Create User</h2>
       <form ng-submit="ctrl.createUser()">
-        <input type="text" ng-model="ctrl.username" />
-        <input type="password" ng-model="ctrl.password" />
+        <label for="userReg">Username: </label>
+        <input id="userReg" type="text" ng-model="ctrl.username" />
+        <label for="passReg">Password:&nbsp;</label>
+        <input id="passReg" type="password" ng-model="ctrl.password" />
+        <div id="buttonPad">
         <input type="submit" value="Create User">
         <a href="#" ng-click="ctrl.regForm = false">Cancel</a>
+        </div>
       </form>
     </div>
 
