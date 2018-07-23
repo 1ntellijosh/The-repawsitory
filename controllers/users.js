@@ -20,5 +20,4 @@ router.get('/user/:id', (req, res) => {
     }).populate('posts');
   });
 
-
 module.exports = router;
