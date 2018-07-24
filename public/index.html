@@ -53,15 +53,22 @@
       <div class="content" ng-show="ctrl.adoptForm === true">
         <div id="adoptDiv">
             <p id="petFinderBanner">Welcome to PetFinder<span><a href="#" id="close" ng-click="ctrl.goHome()">X</a></span></p>
-          <img src="/images/petfinder-logo-web_1.png" alt="pet finder logo">
-          <form >
-              <legend> Adopt a Pet </legend>
-              <label for="aspecies">Pet Species</label>
-              <input type="text" name="aspecies" placeholder="Pet Type IE 'dog', 'cat', etc."id="aspecies">
-              <label for="zip">Zip</label>
-              <input type="number" name="zip" placeholder="Your Zip"id="zip">
+          <div id="petLogoHolder">
+            <img id="petsLogo" src="/images/petfinder-logo-web_1.png" alt="pet finder logo">
+          </div>
+          <form id="petFinderForm">
+              <h3 id="adoptABanner">Adopt a Pet</h3>
+              <div id="adInput">
+                <label for="aspecies">Pet Species</label>
+                <input type="text" name="aspecies" placeholder="Pet Type IE 'dog', 'cat', etc."id="aspecies">
+              </div>
+              <div id="adInput">
+                <label for="zip">Zip</label>
+                <input type="number" name="zip" placeholder="Your Zip"id="zip">
+              </div>
               <input type="submit" id="submitAQuery">
           </form>
+
           <div id="adoptResults">
             <!-- pet adoption lest will populate here -->
           </div>

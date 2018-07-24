@@ -425,6 +425,9 @@ box-shadow:
   margin-top: -20px;
 }
 /* Pet Finder */
+#adoptDiv {
+  margin-bottom: 50px;
+}
 #petFinderBanner {
   width: 90%;
   display: flex;
@@ -434,6 +437,39 @@ box-shadow:
 }
 #petFinderBanner a {
   font-size: 1.3em;
+}
+#petLogoHolder {
+  margin: 0 auto;
+}
+#petFinderForm {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 66%;
+  margin: 0 auto;
+  border: 1px solid black;
+  text-align: center;
+}
+#petFinderForm input[type=submit] {
+  width: 75px;
+  margin: 0 auto;
+}
+#adoptABanner {
+  margin:0px 0px 10px 0px;
+}
+#adInput {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+#petFinderLink {
+  height: 50px;
+}
+#adoptLinks img {
+  height: 100px;
 }
 /* footer */
 footer {
@@ -484,7 +520,6 @@ footer img {
   font-size: 1.3em;
 }
 #linkImage {
-  width: 93%;
   margin: 0px auto;
   padding: 15px;
   margin-top: 15px;
@@ -522,5 +557,5 @@ box-shadow:
   height: 75px;
 }
 #petsLogo {
-  height: 150px;
+  height: 140px;
 }
