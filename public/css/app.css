@@ -184,6 +184,13 @@ box-shadow:
 }
 #featuredMovie iframe {
   height: 275px;
+  -moz-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+-webkit-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+  border-radius: 3px;
 }
 
 #featureLeft {
@@ -210,6 +217,13 @@ box-shadow:
   float: left;
   height: 125px;
   margin: 13px;
+  -moz-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+-webkit-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+  border-radius: 3px;
 }
 #sTitle {
   margin-top: 0px;
@@ -410,6 +424,20 @@ box-shadow:
   margin: 0 auto;
   margin-top: -20px;
 }
+/* Pet Finder */
+#petFinderBanner {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
+#petFinderBanner a {
+  font-size: 1.3em;
+}
+titleWrap a {
+  display: inline-block;
+}
 /* footer */
 footer {
   /* padding-top:45px; */
@@ -443,12 +471,17 @@ footer img {
   font-size: .75em;
   text-align: center;
 }
-
+/* Links page */
+#sLinksHolder {
+  margin-left: 15px;
+  margin-bottom: 50px;
+}
 #linkImage {
   width: 93%;
   margin: 0px auto;
   padding: 15px;
   margin-top: 15px;
+  margin-left: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -464,9 +497,10 @@ box-shadow:
 }
 
 #linkImageChewy {
-  height: 275px;
+  height: 150px;
   margin-top: 15px;
   margin-right: 8px;
+  margin-left: 5px;
   border:1px solid black;
   border-radius: 10px;
   -moz-box-shadow:
@@ -477,9 +511,6 @@ box-shadow:
   4px 5px 10px rgba(000,000,000,0.8);
   border-radius: 3px;
 }
-
-#shopLinks {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 1.5em;
-  padding-left: 5px;
+#linkImage {
+  height: 75px;
 }
