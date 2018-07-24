@@ -180,7 +180,7 @@
             <textarea class="u-full-width" placeholder="{{ctrl.showPost.description}}" value="{{ctrl.showPost.description}}" ng-model="ctrl.eddescription" id="sDescription"></textarea>
           </div>
 
-          <div>
+          <div ng-if="ctrl.showPost.type != 'story'">
             <label for="description">Description: </label>
             <textarea class="u-full-width" placeholder="{{ctrl.showPost.description}}" value="{{ctrl.showPost.description}}" ng-model="ctrl.eddescription" id="description" >{{ctrl.showPost.description}}</textarea>
           </div>
