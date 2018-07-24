@@ -21,11 +21,11 @@ Third party PetFinder API- Generates list of adoptable pets_
 ### Future Goals:
 
 _As a user, I would love to be able to make comments  
-_As a user, it would be nice if I could save the posts I like  
-_As a user, I'd like to search the site or filter for topics I'm interested in_
+As a user, it would be nice if I could save the posts I like  
+As a user, I'd like to search the site or filter for topics I'm interested in_
 
 Enjoy The Re-PAWS-itory today @ [https://repawsitory.herokuapp.com/]
 
-###Credits:
+### Credits:
 
 https://www.petfinder.com/developers/api-docs
