@@ -24,7 +24,8 @@ _As a user, I would love to be able to make comments
 As a user, it would be nice if I could save the posts I like  
 As a user, I'd like to search the site or filter for topics I'm interested in_
 
-Enjoy The Re-PAWS-itory today @ [https://repawsitory.herokuapp.com/]
+### Enjoy The Re-PAWS-itory today:
+[https://repawsitory.herokuapp.com/]
 
 ### Credits:
 
