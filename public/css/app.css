@@ -184,6 +184,13 @@ box-shadow:
 }
 #featuredMovie iframe {
   height: 275px;
+  -moz-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+-webkit-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+  border-radius: 3px;
 }
 
 #featureLeft {
@@ -210,6 +217,13 @@ box-shadow:
   float: left;
   height: 125px;
   margin: 13px;
+  -moz-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+-webkit-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+  border-radius: 3px;
 }
 #sTitle {
   margin-top: 0px;
@@ -410,6 +424,74 @@ box-shadow:
   margin: 0 auto;
   margin-top: -20px;
 }
+/* Pet Finder */
+#adoptDiv {
+  margin-bottom: 50px;
+}
+#petFinderBanner {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
+#petFinderBanner a {
+  font-size: 1.3em;
+}
+#petLogoHolder {
+  margin: 0 auto;
+}
+#petFinderForm {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 66%;
+  margin: 0 auto;
+  border: 1px solid black;
+  text-align: center;
+}
+#petFinderForm input[type=submit] {
+  width: 75px;
+  margin: 0 auto;
+}
+#adoptABanner {
+  margin:0px 0px 10px 0px;
+}
+#adInput {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+#petFinderLink {
+  height: 50px;
+}
+#adoptLinks img {
+  height: 100px;
+}
+#List {
+  width: 85%;
+  margin: 10px auto;
+  border-bottom: 1px solid black;
+  padding: 15px;
+  text-align: center;
+}
+#List p {
+  text-align: left;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+#List img {
+  height: 100px;
+}
+#petName {
+  font-size: 1.5em;
+}
+#petDesc {
+  font-size: .9em;
+}
 /* footer */
 footer {
   /* padding-top:45px; */
@@ -443,12 +525,27 @@ footer img {
   font-size: .75em;
   text-align: center;
 }
-
+/* Links page */
+#sLinksHolder {
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+#linksBanner {
+  width: 86.8%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
+#linksBanner a {
+  font-size: 1.3em;
+}
 #linkImage {
-  width: 93%;
   margin: 0px auto;
+  height: 125px;
   padding: 15px;
   margin-top: 15px;
+  margin-left: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -461,4 +558,26 @@ footer img {
 box-shadow:
   4px 5px 10px rgba(000,000,000,0.8);
   border-radius: 3px;
+}
+
+#linkImageChewy {
+  height: 150px;
+  margin-top: 15px;
+  margin-right: 8px;
+  margin-left: 5px;
+  border:1px solid black;
+  border-radius: 10px;
+  -moz-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+-webkit-box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+box-shadow:
+  4px 5px 10px rgba(000,000,000,0.8);
+  border-radius: 3px;
+}
+#linkImage {
+  height: 75px;
+}
+#petsLogo {
+  height: 140px;
 }

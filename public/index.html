@@ -21,7 +21,7 @@
 
           <a href="#" ng-click="ctrl.goHome()">Home</a>
           <a href="#"  ng-click="ctrl.setAbout()">About</a>
-          <a href="#" ng-click="ctrl.changeInclude('links')">Links</a>
+          <a href="#" ng-click="ctrl.changeInclude('links'); ctrl.setLinks(); ctrl.adoptForm = false">Links</a>
           <a href="#" ng-click="ctrl.setAdopt()">Adopt An Animal</a>
         </div>
       </div>
@@ -53,20 +53,27 @@
       </div>
       <div class="content" ng-show="ctrl.adoptForm === true">
         <div id="adoptDiv">
-          <h1>Welcome to PetFinder</h1>
-          <img src="/images/petfinder-logo-web_1.png" alt="pet finder logo">
-          <form >
-              <legend> Adopt a Pet </legend>
-              <label for="aspecies">Pet Species</label>
-              <input type="text" name="aspecies" placeholder="Pet Type IE 'dog', 'cat', etc."id="aspecies">
-              <label for="zip">Zip</label>
-              <input type="number" name="zip" placeholder="Your Zip"id="zip">
+            <p id="petFinderBanner">Welcome to PetFinder<span><a href="#" id="close" ng-click="ctrl.goHome()">X</a></span></p>
+          <div id="petLogoHolder">
+            <img id="petsLogo" src="/images/petfinder-logo-web_1.png" alt="pet finder logo">
+          </div>
+          <form id="petFinderForm">
+              <h3 id="adoptABanner">Adopt a Pet</h3>
+              <div id="adInput">
+                <label for="aspecies">Pet Species</label>
+                <input type="text" name="aspecies" placeholder="Pet Type IE 'dog', 'cat', etc."id="aspecies">
+              </div>
+              <div id="adInput">
+                <label for="zip">Zip</label>
+                <input type="number" name="zip" placeholder="Your Zip"id="zip">
+              </div>
               <input type="submit" id="submitAQuery">
           </form>
+
           <div id="adoptResults">
             <!-- pet adoption lest will populate here -->
           </div>
-          <hr>
+          <hr />
           <h3>Adopt or Donate</h3>
           <div id="adoptLinks">
             <a href="https://bestfriends.org/">
@@ -77,8 +84,8 @@
             <img ng-src="http://www.humanesociety.org/assets/images/global/logo.png" alt="humane society logo">
             </a>
             <hr>
+            <h3>Find a shelter near you</h3>
             <a href="https://www.adoptapet.com/">
-              <h3>Find a shelter near you</h3>
               <img ng-src="https://images-ra.adoptapet.com/images/adoptapetlogo2017.svg" alt="adopt a pet logo">
             </a>
           </div>
@@ -86,7 +93,7 @@
       </div>
     </div>
       <!-- index to show all posts after member log in -->
-      <div id="rollout" ng-if="ctrl.loggedInId && ctrl.adoptForm === false">
+      <div id="rollout" ng-if="ctrl.loggedInId && ctrl.adoptForm === false && ctrl.links === false">
           <div id="sumDiv" ng-repeat="post in ctrl.posts" ng-init="i = ctrl.post.movie;">
             <a href="#banImg" ng-click="ctrl.getPost(post)">
               <h3 id="rollPostTitle">{{post.title}}</h3>
@@ -109,7 +116,6 @@
           <p>
             {{post.description}}
           </p>
-
       </div></a>
       </div>
     </div>

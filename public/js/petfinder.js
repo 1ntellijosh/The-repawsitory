@@ -31,8 +31,8 @@ function bindButtons(){
 				var pet = [];
 
 
-for(i=0;i<=10;i++){
-				var petName = response.petfinder.pets.pet[i].name['$t'];
+for(let i=0;i<=10;i++){
+				var petName = 'Click here to check out ' +  response.petfinder.pets.pet[i].name['$t'] + '!';
 
 				var img = null
 				if (response.petfinder.pets.pet[i].media.photos !==undefined){
@@ -46,16 +46,32 @@ for(i=0;i<=10;i++){
 				var sex= response.petfinder.pets.pet[i].sex.$t;
 				var age= response.petfinder.pets.pet[i].age.$t;
 				var contact= response.petfinder.pets.pet[i].contact.email.$t;
+        var city = response.petfinder.pets.pet[i].contact.city.$t;
+        var address = response.petfinder.pets.pet[i].contact.address1.$t;
+        var phone = response.petfinder.pets.pet[i].contact.phone.$t;
+        var state = response.petfinder.pets.pet[i].contact.state.$t;
 
 				var newName = document.createElement('a');
+        newName.setAttribute("id", "petName");
 				var newDiv = document.createElement('div');
 				newName.textContent = petName;
 				newName.href = 'https://www.petfinder.com/petdetail/' + id;
 
 				var newDescription= document.createElement('p');
 				newDescription.textContent = description;
+        newDescription.setAttribute("id", "petDesc");
+
 				var newSex= document.createElement('p');
 				newSex.textContent = sex + " "+ age;
+
+        var newLoc = document.createElement('p');
+        newLoc.textContent = city + ', ' + state;
+
+        var newAdd = document.createElement('p');
+        newAdd.textContent = address;
+
+        var newPhone = document.createElement('p');
+        newPhone.textContent = 'call: ' + phone;
 
 				var newContact= document.createElement('a');
 				newContact.textContent = contact;
@@ -72,8 +88,11 @@ for(i=0;i<=10;i++){
 				newDiv.appendChild(newName);
 				list.appendChild(newDiv);
 				list.appendChild(newSex);
+        list.appendChild(newLoc);
+        list.appendChild(newAdd);
 				list.appendChild(newImg);
 				list.appendChild(newDescription);
+        list.appendChild(newPhone);
 				list.appendChild(newContact);
 			}
 		}

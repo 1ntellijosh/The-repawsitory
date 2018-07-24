@@ -28,6 +28,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   controller.logUsername = '';
   controller.randPost = {};
   controller.adoptForm = false;
+  controller.links = false;
 
   $scope.getIframeSrc = function(src) {
     return  src;
@@ -199,12 +200,17 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
    controller.adoptForm = true;
  }
 
+ this.setLinks = function() {
+   controller.links = true;
+ }
+
  this.goHome = function() {
    controller.editFormToShow = false;
    controller.showPostForm = false;
    controller.logForm = false;
    controller.regForm = false;
    controller.adoptForm = false;
+   controller.links = false;
    controller.changeInclude('main');
  }
 
