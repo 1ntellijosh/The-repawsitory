@@ -88,7 +88,7 @@
       <!-- index to show all posts after member log in -->
       <div id="rollout" ng-if="ctrl.loggedInId && ctrl.adoptForm === false">
           <div id="sumDiv" ng-repeat="post in ctrl.posts" ng-init="i = ctrl.post.movie;">
-            <a href="#" ng-click="ctrl.getPost(post)">
+            <a href="#banImg" ng-click="ctrl.getPost(post)">
               <h3 id="rollPostTitle">{{post.title}}</h3>
 
           <div id="image" ng-if="post.image && post.type != 'story'">
@@ -99,12 +99,18 @@
           <iframe width="100%" ng-src="{{getIframeSrc(post.movie)}}" frameborder="0 " allowfullscreen></iframe>
 
           </div>
-          <div id="sumStory" ng-if="post.description">
+          <div id="sumStory" ng-if="post.description && post.type === 'story'">
             <p>
               {{post.description}}
             </p>
 
-        </div></a>
+        </div>
+        <div id="sumDesc" ng-if="post.description && post.type === 'image' || post.description && post.type === 'movie'">
+          <p>
+            {{post.description}}
+          </p>
+
+      </div></a>
       </div>
     </div>
 
