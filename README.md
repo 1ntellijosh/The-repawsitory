@@ -10,7 +10,7 @@
 
 ### Built With:
 
-_Node.js
+_Node.js  
 Mongoose  
 Express  
 AngularJS  
@@ -25,7 +25,7 @@ As a user, it would be nice if I could save the posts I like
 As a user, I'd like to search the site or filter for topics I'm interested in_
 
 ### Enjoy The Re-PAWS-itory today:
-[https://repawsitory.herokuapp.com/]
+https://repawsitory.herokuapp.com/
 
 ### Credits:
 
