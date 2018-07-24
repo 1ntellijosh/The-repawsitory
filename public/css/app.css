@@ -471,6 +471,27 @@ box-shadow:
 #adoptLinks img {
   height: 100px;
 }
+#List {
+  width: 85%;
+  margin: 10px auto;
+  border-bottom: 1px solid black;
+  padding: 15px;
+  text-align: center;
+}
+#List p {
+  text-align: left;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+#List img {
+  height: 100px;
+}
+#petName {
+  font-size: 1.5em;
+}
+#petDesc {
+  font-size: .9em;
+}
 /* footer */
 footer {
   /* padding-top:45px; */
@@ -521,6 +542,7 @@ footer img {
 }
 #linkImage {
   margin: 0px auto;
+  height: 125px;
   padding: 15px;
   margin-top: 15px;
   margin-left: 5px;
