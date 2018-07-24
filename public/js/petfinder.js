@@ -28,22 +28,38 @@ function bindButtons(){
 			// Here is where we handle the response we got back from Petfinder
 			success: function( response ) {
 				console.log(response); // debugging
+				var pet = [];
 
-				var petName = response.petfinder.pets.pet[0].name['$t'];
+
+for(i=0;i<=10;i++){
+				var petName = response.petfinder.pets.pet[i].name['$t'];
 
 				var img = null
-				if (response.petfinder.pets.pet[0].media.photos !==undefined){
-					img=response.petfinder.pets.pet[0].media.photos.photo[0].$t
+				if (response.petfinder.pets.pet[i].media.photos !==undefined){
+					img=response.petfinder.pets.pet[i].media.photos.photo[0].$t
 				}else{
 					img= ""
 				}
 
-				var id = response.petfinder.pets.pet[0].id.$t;
+				var id = response.petfinder.pets.pet[i].id.$t;
+				var description= response.petfinder.pets.pet[i].description.$t;
+				var sex= response.petfinder.pets.pet[i].sex.$t;
+				var age= response.petfinder.pets.pet[i].age.$t;
+				var contact= response.petfinder.pets.pet[i].contact.email.$t;
 
 				var newName = document.createElement('a');
 				var newDiv = document.createElement('div');
 				newName.textContent = petName;
 				newName.href = 'https://www.petfinder.com/petdetail/' + id;
+
+				var newDescription= document.createElement('p');
+				newDescription.textContent = description;
+				var newSex= document.createElement('p');
+				newSex.textContent = sex + " "+ age;
+
+				var newContact= document.createElement('a');
+				newContact.textContent = contact;
+				newContact.href = "mailto:" + contact
 
 				var newImg = document.createElement('img');
 				newImg.src = img;
@@ -55,8 +71,12 @@ function bindButtons(){
 
 				newDiv.appendChild(newName);
 				list.appendChild(newDiv);
+				list.appendChild(newSex);
 				list.appendChild(newImg);
+				list.appendChild(newDescription);
+				list.appendChild(newContact);
 			}
+		}
 		});
 		})
 

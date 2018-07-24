@@ -252,9 +252,23 @@ box-shadow:
 #sumDiv img, iframe {
   height: 125px;
 }
+#sumStory {
+  height: 184px;
+  overflow: hidden;
+}
+#sumStory p {
+  text-align: left;
+}
+#sumDesc {
+  height: 55px;
+  overflow: hidden;
+}
+#sumDesc p {
+  margin-top: 4px;
+}
 #rollPostTitle {
   margin: 5px;
-  font-size: 1.5em;
+  font-size: 1.4em;
   margin-top: 0px;
 }
 /* forms */
