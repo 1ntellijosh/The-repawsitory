@@ -1,4 +1,8 @@
-<!-- div to show the featured post that is clicked on -->
+<!--*******************
+  MAIN POST VIEW FOR FEATURED AND SLICKED POST ON TOP OF ROLLOUT          
+ ********************-->
+
+<!-- SHOWS FEATURED POST THAT HAS BEEN CLICKED ON AFTER LOGIN -->
 <div id="postHolder" ng-if="ctrl.showPost != null && ctrl.loggedInId">
   <!-- div that shows post clicked on -->
   <div ng-if="ctrl.showPost.type === 'image' || ctrl.showPost.type === 'movie'">
@@ -76,7 +80,7 @@
     </article>
     </div>
 </div>
-
+<!-- FRONT PAGE. SHOWS ONE RANDOM FEATURED POST BEFORE LOGIN -->
 <!-- index before login -->
 <div ng-if="!ctrl.loggedInId">
       <div ng-if="ctrl.randPost.type === 'image' || ctrl.randPost.type === 'movie'">

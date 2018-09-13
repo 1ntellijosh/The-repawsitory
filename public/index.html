@@ -2,7 +2,10 @@
 <html ng-app="AnimalApp">
     <head>
         <meta charset="utf-8" >
-        <title>The Re•PAWS•itory</title>
+        <title>The Re•PAWS•itory</title
+          <!--*******************
+            MAIN INDEX PAGE. ALL RENDERS POPULATE HERE
+          ********************-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
         <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -12,13 +15,15 @@
         <link rel="stylesheet" href="/css/app.css">
         <link rel="icon" href="images/paw large.png" type="image/x-icon"/>
     </head>
+    <!-- MAIN CONTROLLER -->
     <body ng-controller="MyController as ctrl">
     <div id="container">
     <div id="header">
+      <!-- HEADER AT THE TOP OF PAGE -->
       <div id="headLinkHolder">
 
         <div id="headRight">
-
+          <!-- LINKS ON TOP RIGHT OF PAGE -->
           <a href="#" ng-click="ctrl.goHome()">Home</a>
           <a href="#"  ng-click="ctrl.setAbout()">About</a>
           <a href="#" ng-click="ctrl.changeInclude('links'); ctrl.setLinks(); ctrl.adoptForm = false">Links</a>
@@ -26,18 +31,24 @@
         </div>
       </div>
     </div>
+    <!-- DIV HOLDS 2 OVERLAPPING DIVS FOR TITLE AND HEADER PICTURE -->
     <div id="bannerOverlay" >
+<<<<<<< HEAD
+      <!-- PICTURE -->
+=======
 
 
+>>>>>>> a41380336672192215802a58d8d71836cc372501
       <div id="banner">
         <img id="banImg" src="../images/animals.png" />
       </div>
+      <!-- SITE TITLE -->
       <div id="rotateDiv">
         <h1 id="siteName">The Re<span id="paws">•PAWS•</span>itory</h1>
         <h4 id="siteSub">For All Things Animal</h4>
       </div>
     </div>
-
+    <!-- SUB MENU UNDER HEADER AND BANNER -->
     <div id="menu">
       <div id="menLinks">
         <a href="#" ng-if="!ctrl.loggedInId" ng-click="ctrl.openLogIn()">Log In</a>
@@ -46,17 +57,20 @@
         <a href="#" ng-click="ctrl.setPostForm()">Make Post</a>
       </div>
     </div>
-
+    <!-- MAIN ROLLOUT OF CONTENT ON PAGE -->
     <div id="waterFall">
+      <!-- Main content rendered here -->
       <div ng-if="ctrl.adoptForm === false" class="content"
         ng-include="ctrl.includePath">
       </div>
+      <!-- PETFINDER API PAGE -->
       <div class="content" ng-show="ctrl.adoptForm === true">
         <div id="adoptDiv">
             <p id="petFinderBanner">Welcome to PetFinder<span><a href="#" id="close" ng-click="ctrl.goHome()">X</a></span></p>
           <div id="petLogoHolder">
             <img id="petsLogo" src="/images/petfinder-logo-web_1.png" alt="pet finder logo">
           </div>
+          <!-- PETFINDER FORM -->
           <form id="petFinderForm">
               <h3 id="adoptABanner">Adopt a Pet</h3>
               <div id="adInput">
@@ -69,11 +83,12 @@
               </div>
               <input type="submit" id="submitAQuery">
           </form>
-
+          <!-- ROLLOUT FOR PETFINDER RESULTS -->
           <div id="adoptResults">
             <!-- pet adoption lest will populate here -->
           </div>
           <hr />
+          <!-- PETFINDER LINKS -->
           <h3>Adopt or Donate</h3>
           <div id="adoptLinks">
             <a href="https://bestfriends.org/">
@@ -92,12 +107,13 @@
         </div>
       </div>
     </div>
-      <!-- index to show all posts after member log in -->
+      <!-- INDEX TO SHOW ALL POSTS AFTER MEMBER LOGIN -->
       <div id="rollout" ng-if="ctrl.loggedInId && ctrl.adoptForm === false && ctrl.links === false">
+          <!-- rollout posts from db -->
           <div id="sumDiv" ng-repeat="post in ctrl.posts" ng-init="i = ctrl.post.movie;">
             <a href="#banImg" ng-click="ctrl.getPost(post)">
               <h3 id="rollPostTitle">{{post.title}}</h3>
-
+          <!-- conditionally display content according to post type -->
           <div id="image" ng-if="post.image && post.type != 'story'">
             <img ng-src="{{post.image}}" alt="">
           </div>
@@ -119,7 +135,7 @@
       </div></a>
       </div>
     </div>
-
+    <!-- FOOTER -->
     <footer>
       <img src="/images/beagle look up.png" />
       <div id="footBlack">
@@ -129,7 +145,7 @@
       </div>
     </footer>
 
-    <!-- log in form -->
+    <!-- LOGIN FORM -->
     <div class="logMod" ng-class="(ctrl.logForm === true ? 'log' : '' )">
     <h2 id="formH">Log In</h2>
         <form ng-submit="ctrl.logIn()">
@@ -144,7 +160,7 @@
         </form>
     </div>
 
-    <!-- Register form -->
+    <!-- REGISTER FORM -->
     <div class="logMod" ng-class="(ctrl.regForm === true ? 'log' : '' )">
     <h2 id="formH">Create User</h2>
       <form ng-submit="ctrl.createUser()">
@@ -159,7 +175,7 @@
       </form>
     </div>
 
-    <!-- edit post modal -->
+    <!-- EDIT POST MODAL -->
     <div class="modal" ng-class="(ctrl.editFormToShow === true ? 'edit' : '' )">
       <form id="postForm" ng-submit="ctrl.editPost(ctrl.showPost)">
         <div id="overWrap">
@@ -168,6 +184,7 @@
           <label for="title">Title: </label>
           <input type="title" ng-model="ctrl.edtitle" value="{{ctrl.showPost.title}}" placeholder="{{ctrl.showPost.title}}"/>
         </div>
+        <!-- coditionally renders according to post type (story movie image) -->
         <label for="edspecies">Animal: </label>
           <select id="edspecies" name="species" ng-model="ctrl.edspecies">
             <option value="Cat">Cat</option>
@@ -206,7 +223,7 @@
     </div>
   </div>
 
-    <!-- Create Post -->
+    <!-- CREATE POST MODAL -->
     <div class="modal" ng-class="(ctrl.showPostForm === true ? 'post' : '' )">
       <form id="postForm" ng-submit="ctrl.createPost(ctrl.loggedInId)">
         <h2> Add New Post </h2>
@@ -261,7 +278,7 @@
 
     </div>
 
-    <!-- about modal -->
+    <!-- ABOUT MODAL -->
     <div class="modal" ng-class="(ctrl.aboutForm === true ? 'about' : '' )">
 
       <div id="aboutAll">
@@ -274,6 +291,6 @@
       </div>
       </div>
     </body>
-    <!-- adoption api petfinder.js link-->
+    <!-- link to petfinder.js api file -->
     <script src="js/petfinder.js" charset="utf-8"></script>
 </html>

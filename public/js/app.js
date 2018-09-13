@@ -1,22 +1,28 @@
+//******************/
+// ANGULAR CONTROLLER FILE
+//******************/
+
+//**** DECLARE ANGULAR APP ****\\
 const app = angular.module('AnimalApp', []);
 
+//**** WHITELIST YOUTUBE DOMAIN FOR RENDERING ON PAGE ****\\
 app.config(function($sceDelegateProvider) {
 $sceDelegateProvider.resourceUrlWhitelist([
   'self',
   'https://www.youtube.com/**'
 ]);
 });
-
 app.config(function($httpProvider) {
     //Enable cross domain calls
     $httpProvider.defaults.useXDomain = true;
 });
 
+//**** MAIN CONTROLLER ****\\
 app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope, $sce){
   this.posts= []
   this.post= ''
 
-
+  // Browsing variables for browsing state changes to page render
   const controller = this;
   this.loggedInId = null;
   this.showPost = null;
@@ -30,14 +36,17 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
   controller.adoptForm = false;
   controller.links = false;
 
+  //**** APP METHODS ****\\
+
+  // Capture source for Youtube
   $scope.getIframeSrc = function(src) {
     return  src;
   };
-
+  // set regForm variable to true to render register form on page
   this.setReg = function() {
     controller.regForm = true;
   }
-
+  // Api call to create user in db on register
   this.createUser = function(){
     $http({
         method:'POST',
@@ -48,16 +57,17 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
         }
     }).then(function(response){
         console.log(response);
+        // close register form render on page
         controller.regForm = false;
     }, function(){
         console.log('error');
     });
   }
-
+  // set logForm variable to true render login form on page
   this.openLogIn = function() {
     controller.logForm = true;
   }
-
+  // api call to log user in and set user session
   this.logIn = function(){
     $http({
         method:'POST',
@@ -68,12 +78,13 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
         }
     }).then(function(response){
         console.log(response);
+        // call goApp function to pull loggedin user id and set loggedInId vaiable to true (used for permissions/ renders on page)
         controller.goApp();
     }, function(){
         console.log('error');
     });
   }
-
+  // Pull user session information from the back and set loggedInId vaiable to true (used for permissions/ renders on page
   this.goApp = function(){
     const controller = this; //add this
     $http({
@@ -82,30 +93,32 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }).then(function(response){
         controller.loggedInId = response.data._id;
         console.log(controller.loggedInId);
+        // close login form render on page
         controller.logForm = false;
         controller.changeInclude('main')
     }, function(){
         console.log('error');
     });
   }
-
+  // api call to log user session of on back end
   this.logOff = function(){
     $http({
         method:'DELETE',
         url: '/sessions'
     }).then(function(response){
         console.log(response);
+        // close logged in user view on page and loggedInId variable to null
         controller.loggedInId = null;
         controller.showPost = null;
     }, function(){
         console.log('error');
     });
   }
-
+  // Randomize function to find a random featured post to display on front page (when a user isn't logged in)
   this.randomize = function () {
       return Math.floor(Math.random() * controller.posts.length);
   };
-
+  // Api call to get all posts made from the db to render on page
   this.getPosts = function(){
     $http({
       method:'GET',
@@ -119,7 +132,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
       console.log('error');
     }
   }
-
+  // Sets the logged in view for page. if the loggedInId variable is turned off, render login form instead
   this.setPostForm = function() {
     if(controller.loggedInId){
       controller.showPostForm = true;
@@ -128,8 +141,9 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
       controller.logForm = true;
     }
   }
-
+  // Method to prepare and add post to db
   this.createPost = function(id){
+    // If post type is Youtube movie, the url will be parsed for the youtube id only. full url will be parsed later for render on page
     if (this.movie) {
       this.movie = getId(this.movie);
       console.log(this.movie);
@@ -151,21 +165,24 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
      }
    }).then(function(response){
      console.log(response);
+     // Pull all posts again to include the new post
      controller.getPosts();
+     // render full rollout of all posts
      controller.showPostForm = false;
    })
  }
-
+ // Render the clicked post to display on featuredPost render at the top of main content
  this.getPost = function(post) {
    controller.showPost = post;
    console.log(controller.showPost);
  }
-
+ // Set editFormToShow variable to true to render edit form on page
  this.editFormSet = function() {
    controller.editFormToShow = true;
  }
-
+ // Method to prepare and send edited post to db
  this.editPost = function(post){
+   // If post type is Youtube movie, the url will be parsed for the youtube id only. full url will be parsed later for render on page
    if (this.movie) {
      this.movie = getId(this.movie);
      console.log(this.movie);
@@ -187,23 +204,25 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
     }
   }).then(function(response){
     console.log(response);
+    // Pull all posts again to include the new post
     controller.getPosts();
+    // render full rollout of all posts
     controller.editFormToShow = false;
   })
  }
-
+ // Set aboutForm variable to true to render about on page
  this.setAbout = function() {
    controller.aboutForm = true;
  }
-
+ // Set adoptForm variable to true to render PetFinder on page
  this.setAdopt = function() {
    controller.adoptForm = true;
  }
-
+ // Set links variable to true to render links on page
  this.setLinks = function() {
    controller.links = true;
  }
-
+ // turn off all browsing variables and set render to main page
  this.goHome = function() {
    controller.editFormToShow = false;
    controller.showPostForm = false;
@@ -213,7 +232,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
    controller.links = false;
    controller.changeInclude('main');
  }
-
+ // Method to add likes to post
  this.updateLikes = post =>{
 
      post.likes++
@@ -227,6 +246,9 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
        console.log(error.message);
      })
    }
+
+   //**** DUMMY POST DATA USED FOR DEVELOPMENT ****\\
+
   // this.posts = [
   //     {
   //       type: 'image',
@@ -272,7 +294,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
 
     // get posts function
 
-
+      // Pull ID from youtube url. Used for movie render control on page. (Some forms of Youtube urls are not compatible on AngularJS)
       function getId(url) {
           var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
           var match = url.match(regExp);
@@ -283,7 +305,7 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
               return 'error';
           }
       }
-
+    // Method to make api call to delete a post (only creating user can delete their own post.)
     this.deletePost= (id)=>{
       $http({
         method: 'DELETE',
@@ -299,18 +321,21 @@ app.controller('MyController', ['$http', '$scope','$sce', function($http, $scope
       })
     }
 
+    //**** FUNCTION CALLS ON PAGE LOAD ****\\
 
-
+    // Grab all posts from db on page load.
     this.getPosts();
+    // Find one random post from results to display on front page when not logged in.
     this.randPost= controller.posts[controller.randomize()];
 
-
+    // show main page on page load.
     this.includePath = '../partials/main.html';
+    // Method to changes renders of partials
     this.changeInclude = (path) => {
     this.includePath = '../partials/'+ path +'.html';
   }
 }]);
-
+// PetFinder API controller. Not used in launched site. Petfinder.js script file used instead.
 app.controller('petfinderController', ['$http', '$scope','$sce', function($http, $scope, $sce){
 
 

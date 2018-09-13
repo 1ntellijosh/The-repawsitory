@@ -1,3 +1,7 @@
+//******************/
+// POST MODEL SCHEMA
+//******************/
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

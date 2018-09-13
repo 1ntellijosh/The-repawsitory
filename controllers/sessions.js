@@ -1,8 +1,13 @@
+//******************/
+// USER SESSION ROUTES
+//******************/
+
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users.js');
 const bcrypt = require('bcrypt');
 
+//**** USER LOG OFF ROUTE ****\\
 router.delete('/', function(req, res){
     req.session.destroy(function(){
         res.status(200).json({
@@ -11,7 +16,7 @@ router.delete('/', function(req, res){
         });
     });
 })
-
+//**** USER LOGIN ROUTE - CREATE SESSION ****\\
 router.post('/', (req, res)=>{
     User.findOne({username:req.body.username}, (err, foundUser)=>{
         if(bcrypt.compareSync(req.body.password, foundUser.password)){
